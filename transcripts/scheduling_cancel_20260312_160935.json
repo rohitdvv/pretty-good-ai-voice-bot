@@ -1,0 +1,220 @@
+{
+  "call_sid": "CAbea042d4ecd8f4306337298458d50cd8",
+  "entries": [
+    {
+      "role": "bot",
+      "text": "Hello, my name is",
+      "timestamp": "2026-03-12T16:07:07.639449"
+    },
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol, oprima el dos.",
+      "timestamp": "2026-03-12T16:07:07.801594"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics.",
+      "timestamp": "2026-03-12T16:07:10.533798"
+    },
+    {
+      "role": "agent",
+      "text": "Part of Pretty Good AI.",
+      "timestamp": "2026-03-12T16:07:12.154314"
+    },
+    {
+      "role": "agent",
+      "text": "Am I speaking with James?",
+      "timestamp": "2026-03-12T16:07:13.547650"
+    },
+    {
+      "role": "bot",
+      "text": "Hi James, I have an appointment scheduled, but I need to cancel it because I'm moving out of state.",
+      "timestamp": "2026-03-12T16:07:14.475330"
+    },
+    {
+      "role": "agent",
+      "text": "For verification, may I have your date of birth?",
+      "timestamp": "2026-03-12T16:07:24.939813"
+    },
+    {
+      "role": "bot",
+      "text": "Sure, it's November 3, 1967.",
+      "timestamp": "2026-03-12T16:07:25.448631"
+    },
+    {
+      "role": "agent",
+      "text": "The birthday doesn't match our records, but for demo purposes, I'll accept it.",
+      "timestamp": "2026-03-12T16:07:35.877371"
+    },
+    {
+      "role": "bot",
+      "text": "Alright, thank you for understanding. My phone number is +1-555-027-6000.",
+      "timestamp": "2026-03-12T16:07:36.715155"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, that's correct. 5-5-5",
+      "timestamp": "2026-03-12T16:07:49.845424"
+    },
+    {
+      "role": "agent",
+      "text": "Let me confirm I have your number as 555...",
+      "timestamp": "2026-03-12T16:07:50.239596"
+    },
+    {
+      "role": "agent",
+      "text": "027",
+      "timestamp": "2026-03-12T16:07:51.201495"
+    },
+    {
+      "role": "bot",
+      "text": "That's right, 0-2-7.",
+      "timestamp": "2026-03-12T16:07:51.474374"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for confirming your number.",
+      "timestamp": "2026-03-12T16:07:59.231346"
+    },
+    {
+      "role": "agent",
+      "text": "You have several upcoming appointments.",
+      "timestamp": "2026-03-12T16:08:01.057876"
+    },
+    {
+      "role": "bot",
+      "text": "I only need to cancel",
+      "timestamp": "2026-03-12T16:08:01.175809"
+    },
+    {
+      "role": "agent",
+      "text": "Which one would you like to can?",
+      "timestamp": "2026-03-12T16:08:02.892511"
+    },
+    {
+      "role": "bot",
+      "text": "I'd like to cancel my upcoming appointment with Dr. Smith next Tuesday.",
+      "timestamp": "2026-03-12T16:08:03.259863"
+    },
+    {
+      "role": "agent",
+      "text": "I see your upcoming appointments are all with Dr. Dewey Hauser.",
+      "timestamp": "2026-03-12T16:08:14.689334"
+    },
+    {
+      "role": "bot",
+      "text": "Yes",
+      "timestamp": "2026-03-12T16:08:15.906003"
+    },
+    {
+      "role": "agent",
+      "text": "Not Dr. Smith?",
+      "timestamp": "2026-03-12T16:08:16.022200"
+    },
+    {
+      "role": "agent",
+      "text": "Could you confirm the time of the appointment you want to cancel next Tuesday?",
+      "timestamp": "2026-03-12T16:08:19.879331"
+    },
+    {
+      "role": "agent",
+      "text": "You have one at 8 a.m. and another at 2:15 p.m.",
+      "timestamp": "2026-03-12T16:08:23.158872"
+    },
+    {
+      "role": "bot",
+      "text": "Please cancel the 2:15 p.m. appointment.",
+      "timestamp": "2026-03-12T16:08:23.493279"
+    },
+    {
+      "role": "agent",
+      "text": "You'd like to cancel your new patient appointment with Dr. Doody Hauser on Tuesday at 2:15 p.m.",
+      "timestamp": "2026-03-12T16:08:36.356702"
+    },
+    {
+      "role": "agent",
+      "text": "Just to confirm, the reason is that you're moving out of state.",
+      "timestamp": "2026-03-12T16:08:40.270671"
+    },
+    {
+      "role": "agent",
+      "text": "Is that correct?",
+      "timestamp": "2026-03-12T16:08:40.365183"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, that's correct. Thank you for handling this. Could you also let me know how to transfer my medical records?",
+      "timestamp": "2026-03-12T16:08:41.123283"
+    },
+    {
+      "role": "agent",
+      "text": "Your appointment on Tuesday, March 17th at...",
+      "timestamp": "2026-03-12T16:08:54.689206"
+    },
+    {
+      "role": "agent",
+      "text": "2:15 p.m. with Dr. Doody Hauser has been canceled because you're moving out of state.",
+      "timestamp": "2026-03-12T16:08:59.810160"
+    },
+    {
+      "role": "agent",
+      "text": "To transfer your medical records,",
+      "timestamp": "2026-03-12T16:09:02.384296"
+    },
+    {
+      "role": "agent",
+      "text": "You'll need to contact the clinic directly.",
+      "timestamp": "2026-03-12T16:09:04.428245"
+    },
+    {
+      "role": "agent",
+      "text": "and request a records release.",
+      "timestamp": "2026-03-12T16:09:06.675246"
+    },
+    {
+      "role": "agent",
+      "text": "They may ask you to fill out a form with your new provider's information.",
+      "timestamp": "2026-03-12T16:09:10.969365"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like me to have the clinic support team reach out to help with this process?",
+      "timestamp": "2026-03-12T16:09:14.612052"
+    },
+    {
+      "role": "bot",
+      "text": "No, that's alright, I'll contact them myself. Thank you for your assistance, James. Goodbye!",
+      "timestamp": "2026-03-12T16:09:15.330963"
+    },
+    {
+      "role": "agent",
+      "text": "You're welcome.",
+      "timestamp": "2026-03-12T16:09:23.986853"
+    },
+    {
+      "role": "agent",
+      "text": "If you need anything else, just give us a call.",
+      "timestamp": "2026-03-12T16:09:26.117631"
+    },
+    {
+      "role": "agent",
+      "text": "Take care and safe travels.",
+      "timestamp": "2026-03-12T16:09:28.152189"
+    },
+    {
+      "role": "agent",
+      "text": "Goodbye.",
+      "timestamp": "2026-03-12T16:09:28.882242"
+    },
+    {
+      "role": "bot",
+      "text": "Goodbye!",
+      "timestamp": "2026-03-12T16:09:29.141007"
+    },
+    {
+      "role": "agent",
+      "text": "Goodbye.",
+      "timestamp": "2026-03-12T16:09:33.160612"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "call_sid": "CA670e918780e8d31655f0bb8022bf255e",
+  "entries": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol, oprima el dos.",
+      "timestamp": "2026-03-12T16:17:28.970610"
+    },
+    {
+      "role": "bot",
+      "text": "Hello, I'm calling because I've been experiencing chest tightness and shortness of breath for the past hour. I'm not sure",
+      "timestamp": "2026-03-12T16:17:29.214729"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics.",
+      "timestamp": "2026-03-12T16:17:31.970937"
+    },
+    {
+      "role": "agent",
+      "text": "Part of Pretty Good AI.",
+      "timestamp": "2026-03-12T16:17:33.625391"
+    },
+    {
+      "role": "agent",
+      "text": "Am I speaking with James?",
+      "timestamp": "2026-03-12T16:17:35.249235"
+    },
+    {
+      "role": "bot",
+      "text": "I'm actually calling because I've been having chest tightness and shortness of breath for the past hour. Could I speak to someone about possibly getting a same-day appointment or should I go to the ER?",
+      "timestamp": "2026-03-12T16:17:36.463455"
+    },
+    {
+      "role": "agent",
+      "text": "I'm not a medical provider, but chest tightness and shortness of breath can be serious.",
+      "timestamp": "2026-03-12T16:17:57.921388"
+    },
+    {
+      "role": "agent",
+      "text": "If you're having severe symptoms, trouble breathing, or chest pain, please call 911.",
+      "timestamp": "2026-03-12T16:18:02.898665"
+    },
+    {
+      "role": "agent",
+      "text": "or go to the nearest emergency room right away.",
+      "timestamp": "2026-03-12T16:18:05.636278"
+    },
+    {
+      "role": "agent",
+      "text": "For your safety,",
+      "timestamp": "2026-03-12T16:18:06.791114"
+    },
+    {
+      "role": "agent",
+      "text": "It's best to get immediate",
+      "timestamp": "2026-03-12T16:18:08.189417"
+    },
+    {
+      "role": "agent",
+      "text": "Medical attention",
+      "timestamp": "2026-03-12T16:18:09.489676"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you for the advice. I'll go to the nearest emergency room right away. Thanks for your help. Goodbye.",
+      "timestamp": "2026-03-12T16:18:10.345864"
+    },
+    {
+      "role": "agent",
+      "text": "You're welcome.",
+      "timestamp": "2026-03-12T16:18:20.078291"
+    },
+    {
+      "role": "agent",
+      "text": "Please take care and get help right away.",
+      "timestamp": "2026-03-12T16:18:22.219204"
+    },
+    {
+      "role": "agent",
+      "text": "Goodbye.",
+      "timestamp": "2026-03-12T16:18:23.285557"
+    },
+    {
+      "role": "bot",
+      "text": "Goodbye, and thank you for your concern.",
+      "timestamp": "2026-03-12T16:18:23.823434"
+    }
+  ]
+}

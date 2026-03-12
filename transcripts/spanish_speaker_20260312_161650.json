@@ -1,0 +1,120 @@
+{
+  "call_sid": "CAc2d72a90c5dfc35f347dcfa7f3670599",
+  "entries": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol, oprima el dos.",
+      "timestamp": "2026-03-12T16:15:53.618408"
+    },
+    {
+      "role": "bot",
+      "text": "Hello, I need to schedule an appointment for my annual physical, please.",
+      "timestamp": "2026-03-12T16:15:53.862831"
+    },
+    {
+      "role": "bot",
+      "text": "I\u2019m actually looking for",
+      "timestamp": "2026-03-12T16:15:56.587746"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics.",
+      "timestamp": "2026-03-12T16:15:56.637257"
+    },
+    {
+      "role": "agent",
+      "text": "Part of Pretty Good AI.",
+      "timestamp": "2026-03-12T16:15:58.253116"
+    },
+    {
+      "role": "bot",
+      "text": "Perd\u00f3n, creo que me equivoqu\u00e9",
+      "timestamp": "2026-03-12T16:15:58.300623"
+    },
+    {
+      "role": "agent",
+      "text": "Am I speaking with James?",
+      "timestamp": "2026-03-12T16:15:59.983833"
+    },
+    {
+      "role": "bot",
+      "text": "No, I'm not James. I'd like to schedule an appointment for my annual physical, please.",
+      "timestamp": "2026-03-12T16:16:00.328024"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you! I need",
+      "timestamp": "2026-03-12T16:16:10.336342"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for letting me know.",
+      "timestamp": "2026-03-12T16:16:10.371469"
+    },
+    {
+      "role": "agent",
+      "text": "Pivot Point Orthopedic.",
+      "timestamp": "2026-03-12T16:16:11.253117"
+    },
+    {
+      "role": "bot",
+      "text": "I think I might have made a mistake. I was hoping to book an appointment for my annual physical. Could you help me with that?",
+      "timestamp": "2026-03-12T16:16:11.894095"
+    },
+    {
+      "role": "bot",
+      "text": "Oh, I'm sorry for",
+      "timestamp": "2026-03-12T16:16:27.111216"
+    },
+    {
+      "role": "agent",
+      "text": "Pivot Point Orthopedics focuses on orthopedic care like joint, muscle, and bone conditions.",
+      "timestamp": "2026-03-12T16:16:27.156642"
+    },
+    {
+      "role": "agent",
+      "text": "We don't offer annual physicals.",
+      "timestamp": "2026-03-12T16:16:29.514947"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you for the information.",
+      "timestamp": "2026-03-12T16:16:32.260125"
+    },
+    {
+      "role": "agent",
+      "text": "but we can help with orthopedic concerns or injuries.",
+      "timestamp": "2026-03-12T16:16:32.421542"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like to schedule it",
+      "timestamp": "2026-03-12T16:16:34.052904"
+    },
+    {
+      "role": "bot",
+      "text": "Not today, gracias. Have a great day!",
+      "timestamp": "2026-03-12T16:16:34.291132"
+    },
+    {
+      "role": "agent",
+      "text": "No problem.",
+      "timestamp": "2026-03-12T16:16:40.415846"
+    },
+    {
+      "role": "agent",
+      "text": "If you ever need orthopedic care, feel free to reach out.",
+      "timestamp": "2026-03-12T16:16:43.483682"
+    },
+    {
+      "role": "agent",
+      "text": "Take care.",
+      "timestamp": "2026-03-12T16:16:44.129012"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you, take care!",
+      "timestamp": "2026-03-12T16:16:44.576076"
+    }
+  ]
+}

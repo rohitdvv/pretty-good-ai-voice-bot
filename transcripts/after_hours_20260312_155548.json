@@ -1,0 +1,250 @@
+{
+  "call_sid": "CA612424f378bff71358f9501f836ba5fd",
+  "entries": [
+    {
+      "role": "bot",
+      "text": "Hello, I",
+      "timestamp": "2026-03-12T15:52:08.897950"
+    },
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol, oprima el dos.",
+      "timestamp": "2026-03-12T15:52:08.940994"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics.",
+      "timestamp": "2026-03-12T15:52:11.323177"
+    },
+    {
+      "role": "agent",
+      "text": "Part of Pretty Good AI.",
+      "timestamp": "2026-03-12T15:52:13.142976"
+    },
+    {
+      "role": "agent",
+      "text": "Am I speaking with James?",
+      "timestamp": "2026-03-12T15:52:14.691132"
+    },
+    {
+      "role": "bot",
+      "text": "Hello, this is Nancy Taylor. Could you please help me schedule an appointment?",
+      "timestamp": "2026-03-12T15:52:15.180550"
+    },
+    {
+      "role": "agent",
+      "text": "May I have your first name, last name, and date of birth?",
+      "timestamp": "2026-03-12T15:52:24.537745"
+    },
+    {
+      "role": "bot",
+      "text": "Sure, my name is Nancy Taylor, and my date of birth is May 18, 1994.",
+      "timestamp": "2026-03-12T15:52:25.599408"
+    },
+    {
+      "role": "agent",
+      "text": "I know your birthday is May 18, 1994.",
+      "timestamp": "2026-03-12T15:52:36.683436"
+    },
+    {
+      "role": "agent",
+      "text": "Is that correct?",
+      "timestamp": "2026-03-12T15:52:37.826147"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, that\u2019s correct.",
+      "timestamp": "2026-03-12T15:52:38.772198"
+    },
+    {
+      "role": "agent",
+      "text": "Could you spell your first and last name for me, please?",
+      "timestamp": "2026-03-12T15:52:45.374276"
+    },
+    {
+      "role": "bot",
+      "text": "Of course. My first name is Nancy, N-A-N-C-Y, and my last name is Taylor, T-A-Y-L-O-R.",
+      "timestamp": "2026-03-12T15:52:46.759754"
+    },
+    {
+      "role": "agent",
+      "text": "What other phone number do we have on file for you?",
+      "timestamp": "2026-03-12T15:52:58.729538"
+    },
+    {
+      "role": "bot",
+      "text": "The phone number I have on file is +1-555-104-5000.",
+      "timestamp": "2026-03-12T15:52:59.587226"
+    },
+    {
+      "role": "agent",
+      "text": "I'm not finding a patient record for you in our system. I can connect you to our patient support team so they can help you schedule your appointment.",
+      "timestamp": "2026-03-12T15:53:19.722792"
+    },
+    {
+      "role": "agent",
+      "text": "Please stay on the line while I transfer your call.",
+      "timestamp": "2026-03-12T15:53:22.078846"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you, I'll wait for the transfer.",
+      "timestamp": "2026-03-12T15:53:22.548588"
+    },
+    {
+      "role": "agent",
+      "text": "Live transfer isn't available right now since this is a demo clinic.",
+      "timestamp": "2026-03-12T15:53:32.578310"
+    },
+    {
+      "role": "agent",
+      "text": "If you'd like, I can still help answer questions or provide information about Pivot Point Orthopedics.",
+      "timestamp": "2026-03-12T15:53:38.363513"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like to continue with me?",
+      "timestamp": "2026-03-12T15:53:39.451617"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, that would be great. Could you let me know the earliest and latest appointment times available?",
+      "timestamp": "2026-03-12T15:53:41.143727"
+    },
+    {
+      "role": "agent",
+      "text": "Since I don't have your patient record, I can't check exact appointment times.",
+      "timestamp": "2026-03-12T15:53:53.229872"
+    },
+    {
+      "role": "agent",
+      "text": "but I can share that Pivot Point Orthopedics offers appointments Monday through Friday with...",
+      "timestamp": "2026-03-12T15:53:59.177795"
+    },
+    {
+      "role": "agent",
+      "text": "Early morning and evening options on some days.",
+      "timestamp": "2026-03-12T15:54:00.851354"
+    },
+    {
+      "role": "agent",
+      "text": "If you'd like to become a new patient, our support team can help you get started.",
+      "timestamp": "2026-03-12T15:54:04.949552"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like more details about the clinic or providers?",
+      "timestamp": "2026-03-12T15:54:08.133856"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, I'd appreciate more details about the clinic and the providers. Could you tell me about the types of services offered?",
+      "timestamp": "2026-03-12T15:54:10.244679"
+    },
+    {
+      "role": "agent",
+      "text": "Cinnet Point Orthopedics treats joint, muscle and bone conditions.",
+      "timestamp": "2026-03-12T15:54:23.977560"
+    },
+    {
+      "role": "agent",
+      "text": "We help with sports injuries, chronic pain, post-surgery recovery, and physical therapy. Our team includes experienced doctors and physical therapists who offer new patient consultations.",
+      "timestamp": "2026-03-12T15:54:34.766792"
+    },
+    {
+      "role": "agent",
+      "text": "Follow-ups?",
+      "timestamp": "2026-03-12T15:54:35.284763"
+    },
+    {
+      "role": "agent",
+      "text": "procedures and rehab sessions, all in one location.",
+      "timestamp": "2026-03-12T15:54:38.721011"
+    },
+    {
+      "role": "agent",
+      "text": "We welcome new patients and accept most insurance plans.",
+      "timestamp": "2026-03-12T15:54:41.993854"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like to hear about our providers?",
+      "timestamp": "2026-03-12T15:54:43.815291"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, I'd love to know more about the providers. What can you tell me about their specialties and experience?",
+      "timestamp": "2026-03-12T15:54:45.347616"
+    },
+    {
+      "role": "agent",
+      "text": "We have three doctors and two physical therapists.",
+      "timestamp": "2026-03-12T15:54:57.928070"
+    },
+    {
+      "role": "agent",
+      "text": "Dr. Duddy Houser focuses on quick orthopedic procedures and first-time evaluations.",
+      "timestamp": "2026-03-12T15:55:03.451622"
+    },
+    {
+      "role": "agent",
+      "text": "Dr. Doug Ross handles complex or advanced orthopedic procedures, often for challenging cases.",
+      "timestamp": "2026-03-12T15:55:08.901258"
+    },
+    {
+      "role": "agent",
+      "text": "Dr. Adam Bricker provides care for a wide range of joint and muscle conditions.",
+      "timestamp": "2026-03-12T15:55:14.015963"
+    },
+    {
+      "role": "agent",
+      "text": "seeing both new and returning patients.",
+      "timestamp": "2026-03-12T15:55:15.896995"
+    },
+    {
+      "role": "agent",
+      "text": "Wynn Anderson and Carl Mintz are our physical therapists.",
+      "timestamp": "2026-03-12T15:55:18.939046"
+    },
+    {
+      "role": "agent",
+      "text": "Helping patients recover strength and mobility after injury or surgery.",
+      "timestamp": "2026-03-12T15:55:23.384836"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like more details about a specific provider or service?",
+      "timestamp": "2026-03-12T15:55:26.532561"
+    },
+    {
+      "role": "bot",
+      "text": "No, I think I have all the information I need for now. Thank you for your help!",
+      "timestamp": "2026-03-12T15:55:28.254295"
+    },
+    {
+      "role": "agent",
+      "text": "You're welcome.",
+      "timestamp": "2026-03-12T15:55:36.120585"
+    },
+    {
+      "role": "agent",
+      "text": "If you have more questions or want to schedule an appointment,",
+      "timestamp": "2026-03-12T15:55:39.586523"
+    },
+    {
+      "role": "agent",
+      "text": "Just call us any time.",
+      "timestamp": "2026-03-12T15:55:41.184089"
+    },
+    {
+      "role": "agent",
+      "text": "Have a great day!",
+      "timestamp": "2026-03-12T15:55:42.207663"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you, you too! Goodbye!",
+      "timestamp": "2026-03-12T15:55:43.780237"
+    }
+  ]
+}

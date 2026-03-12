@@ -1,0 +1,69 @@
+[Office Agent]: This call may be recorded for quality and training purposes. Para español, oprima el dos.
+
+[Office Agent]: Thanks for calling Pivot Point Orthopedics.
+
+[Office Agent]: Part of Pretty Good AI.
+
+[Office Agent]: Am I speaking with James?
+
+[Patient Bot]: Hello, I'm actually calling to schedule a routine checkup appointment. Could you please help me with that?
+
+[Office Agent]: For verification, may I have your date of birth?
+
+[Patient Bot]: Sure, my date of birth is March 15, 1991.
+
+[Office Agent]: The birthday doesn't match our records, but for demo purposes...
+
+[Office Agent]: I'll accept it.
+
+[Patient Bot]: Thank you. I'd like to schedule a routine checkup appointment, preferably in the morning. Are there any available slots in the upcoming weeks?
+
+[Office Agent]: Thanks, James.
+
+[Office Agent]: For a routine checkup we offer a follow-up consultation.
+
+[Office Agent]: which lasts about sixty minutes.
+
+[Office Agent]: Does that sound right, or do you have something else in mind?
+
+[Patient Bot]: A 60-minute follow-up consultation sounds perfect. Could I book it for a morning time, maybe next week?
+
+[Office Agent]: Let me check morning availability for a follow-up consultation next week.
+
+[Office Agent]: One moment.
+
+[Patient Bot]: Sure, take your time.
+
+[Office Agent]: We have a morning opening next Monday.
+
+[Office Agent]: March sixteenth at ten with Doctor Dudi Hauser.
+
+[Office Agent]: Would you like to book that or hear about other options?
+
+[Patient Bot]: Yes, that time works for me. Please go ahead and book the appointment for March 16th at 10 with Dr. Dudi Hauser.
+
+[Office Agent]: Your follow-up consultation is set for Monday, March sixteenth at ten a.m. with Dr. Dudihouser.
+
+[Office Agent]: Please bring a government issued photo ID and your insurance card to the appointment.
+
+[Office Agent]: Would you like a text reminder for this visit?
+
+[Patient Bot]: Yes, a text reminder would be great, thank you!
+
+[Office Agent]: You'll get a text reminder soon.
+
+[Office Agent]: If you need to change or cancel your appointment,
+
+[Office Agent]: Just let us know.
+
+[Office Agent]: Is there anything else I can help you with today?
+
+[Patient Bot]: No, that's all for today. Thank you for your help! Goodbye!
+
+[Office Agent]: You're all set.
+
+[Office Agent]: Have a great day.
+
+[Office Agent]: Goodbye.
+
+[Patient Bot]: Goodbye! Have a great day!

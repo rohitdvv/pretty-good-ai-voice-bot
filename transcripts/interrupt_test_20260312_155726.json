@@ -1,0 +1,115 @@
+{
+  "call_sid": "CA51d7a0d4f22ab0910abc9ce9c091f250",
+  "entries": [
+    {
+      "role": "bot",
+      "text": "Hello, I\u2019d like to book an appointment",
+      "timestamp": "2026-03-12T15:56:32.825384"
+    },
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol, oprima el dos.",
+      "timestamp": "2026-03-12T15:56:33.606896"
+    },
+    {
+      "role": "bot",
+      "text": "Actually, I might have the wrong number.",
+      "timestamp": "2026-03-12T15:56:35.264609"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pinnacle Pointe Orthopedics.",
+      "timestamp": "2026-03-12T15:56:35.353032"
+    },
+    {
+      "role": "agent",
+      "text": "Part of Pretty Good AI.",
+      "timestamp": "2026-03-12T15:56:36.906307"
+    },
+    {
+      "role": "bot",
+      "text": "Oh, sorry about that! I\u2019m looking to schedule an",
+      "timestamp": "2026-03-12T15:56:37.089583"
+    },
+    {
+      "role": "agent",
+      "text": "Am I speaking with James?",
+      "timestamp": "2026-03-12T15:56:38.611634"
+    },
+    {
+      "role": "bot",
+      "text": "No, this is actually the appointment desk. How can I assist you today?",
+      "timestamp": "2026-03-12T15:56:39.082552"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for letting me know.",
+      "timestamp": "2026-03-12T15:56:47.937501"
+    },
+    {
+      "role": "agent",
+      "text": "How can I help you with your tasks at the appointment desk today?",
+      "timestamp": "2026-03-12T15:56:50.782726"
+    },
+    {
+      "role": "bot",
+      "text": "I\u2019d like to book an appointment for a sore throat, please.",
+      "timestamp": "2026-03-12T15:56:51.154132"
+    },
+    {
+      "role": "agent",
+      "text": "Pivot Point Orthopedics specializes in joint,",
+      "timestamp": "2026-03-12T15:57:00.796046"
+    },
+    {
+      "role": "agent",
+      "text": "Muscle and bone conditions",
+      "timestamp": "2026-03-12T15:57:02.384622"
+    },
+    {
+      "role": "agent",
+      "text": "But we don't treat general medical issues like sore throats.",
+      "timestamp": "2026-03-12T15:57:06.424838"
+    },
+    {
+      "role": "bot",
+      "text": "Oh, I see. Could you please",
+      "timestamp": "2026-03-12T15:57:06.559520"
+    },
+    {
+      "role": "agent",
+      "text": "You may want to contact your",
+      "timestamp": "2026-03-12T15:57:08.207646"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you for the information. I\u2019ll contact my primary care provider. Have a great day! Goodbye!",
+      "timestamp": "2026-03-12T15:57:08.843395"
+    },
+    {
+      "role": "bot",
+      "text": "Goodbye!",
+      "timestamp": "2026-03-12T15:57:17.413637"
+    },
+    {
+      "role": "agent",
+      "text": "You're welcome.",
+      "timestamp": "2026-03-12T15:57:17.537297"
+    },
+    {
+      "role": "agent",
+      "text": "Take care and hope you feel better soon.",
+      "timestamp": "2026-03-12T15:57:19.467546"
+    },
+    {
+      "role": "agent",
+      "text": "Goodbye.",
+      "timestamp": "2026-03-12T15:57:20.235591"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you! Goodbye!",
+      "timestamp": "2026-03-12T15:57:20.726746"
+    }
+  ]
+}

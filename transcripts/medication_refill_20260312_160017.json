@@ -1,0 +1,170 @@
+{
+  "call_sid": "CA1a532c419a5ddd04c93f4cff2b63ce7a",
+  "entries": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol, oprima el dos.",
+      "timestamp": "2026-03-12T15:58:05.471499"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics.",
+      "timestamp": "2026-03-12T15:58:08.355278"
+    },
+    {
+      "role": "agent",
+      "text": "Part of Pretty Good AI.",
+      "timestamp": "2026-03-12T15:58:10.660111"
+    },
+    {
+      "role": "agent",
+      "text": "Am I speaking with James?",
+      "timestamp": "2026-03-12T15:58:11.994744"
+    },
+    {
+      "role": "bot",
+      "text": "I'm not James. How can I help you today?",
+      "timestamp": "2026-03-12T15:58:12.543169"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for letting me know.",
+      "timestamp": "2026-03-12T15:58:18.989804"
+    },
+    {
+      "role": "agent",
+      "text": "Are you calling for information about the clinic, or is this about a specific patient?",
+      "timestamp": "2026-03-12T15:58:23.184024"
+    },
+    {
+      "role": "bot",
+      "text": "I'm calling to request a refill on my blood pressure medication.",
+      "timestamp": "2026-03-12T15:58:24.612217"
+    },
+    {
+      "role": "agent",
+      "text": "I can help with that.",
+      "timestamp": "2026-03-12T15:58:32.743639"
+    },
+    {
+      "role": "agent",
+      "text": "May I have the first name of the patient who needs the medication refill?",
+      "timestamp": "2026-03-12T15:58:37.187716"
+    },
+    {
+      "role": "bot",
+      "text": "Sure, the first name is Robert.",
+      "timestamp": "2026-03-12T15:58:37.910215"
+    },
+    {
+      "role": "agent",
+      "text": "May I have your first name, last name, and date of birth?",
+      "timestamp": "2026-03-12T15:58:46.235961"
+    },
+    {
+      "role": "bot",
+      "text": "My name is Robert Williams, and my date of birth is January 8th, 1963.",
+      "timestamp": "2026-03-12T15:58:46.656406"
+    },
+    {
+      "role": "agent",
+      "text": "I heard your birthday as January 8th.",
+      "timestamp": "2026-03-12T15:58:56.900147"
+    },
+    {
+      "role": "agent",
+      "text": "1963",
+      "timestamp": "2026-03-12T15:58:58.209864"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, that's correct.",
+      "timestamp": "2026-03-12T15:58:59.985341"
+    },
+    {
+      "role": "agent",
+      "text": "Is that correct?",
+      "timestamp": "2026-03-12T15:59:00.692098"
+    },
+    {
+      "role": "agent",
+      "text": "Could you spell your first and last name for me, please?",
+      "timestamp": "2026-03-12T15:59:06.017957"
+    },
+    {
+      "role": "bot",
+      "text": "Certainly. My first name is Robert, R-O-B-E-R-T, and my last name is Williams, W-I-L-L-I-A-M-S.",
+      "timestamp": "2026-03-12T15:59:07.395211"
+    },
+    {
+      "role": "agent",
+      "text": "What other phone number do we have on file for you?",
+      "timestamp": "2026-03-12T15:59:21.594995"
+    },
+    {
+      "role": "bot",
+      "text": "The phone number on file is +1-555-033-1000.",
+      "timestamp": "2026-03-12T15:59:23.285307"
+    },
+    {
+      "role": "agent",
+      "text": "I'm not able to find a patient record for Robert.",
+      "timestamp": "2026-03-12T15:59:36.663915"
+    },
+    {
+      "role": "agent",
+      "text": "I can connect you to our patient support team for help with your medication refill.",
+      "timestamp": "2026-03-12T15:59:41.162528"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like me to transfer you now?",
+      "timestamp": "2026-03-12T15:59:43.038222"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, please. That would be helpful. Thank you.",
+      "timestamp": "2026-03-12T15:59:43.652026"
+    },
+    {
+      "role": "agent",
+      "text": "Live transfer isn't available right now since this is a demo clinic.",
+      "timestamp": "2026-03-12T15:59:55.344790"
+    },
+    {
+      "role": "agent",
+      "text": "In a real situation, I would have connected you to a support team member.",
+      "timestamp": "2026-03-12T15:59:59.235728"
+    },
+    {
+      "role": "agent",
+      "text": "Is there anything else I can help you with today?",
+      "timestamp": "2026-03-12T16:00:01.573415"
+    },
+    {
+      "role": "bot",
+      "text": "No, that's all for now. Thank you for your help! Goodbye!",
+      "timestamp": "2026-03-12T16:00:02.560311"
+    },
+    {
+      "role": "agent",
+      "text": "You're welcome.",
+      "timestamp": "2026-03-12T16:00:09.426884"
+    },
+    {
+      "role": "agent",
+      "text": "Have a great day!",
+      "timestamp": "2026-03-12T16:00:10.233332"
+    },
+    {
+      "role": "agent",
+      "text": "Goodbye.",
+      "timestamp": "2026-03-12T16:00:11.114969"
+    },
+    {
+      "role": "bot",
+      "text": "Goodbye! Have a great day!",
+      "timestamp": "2026-03-12T16:00:12.052809"
+    }
+  ]
+}

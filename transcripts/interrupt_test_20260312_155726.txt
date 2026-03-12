@@ -1,0 +1,43 @@
+[Patient Bot]: Hello, I’d like to book an appointment
+
+[Office Agent]: This call may be recorded for quality and training purposes. Para español, oprima el dos.
+
+[Patient Bot]: Actually, I might have the wrong number.
+
+[Office Agent]: Thanks for calling Pinnacle Pointe Orthopedics.
+
+[Office Agent]: Part of Pretty Good AI.
+
+[Patient Bot]: Oh, sorry about that! I’m looking to schedule an
+
+[Office Agent]: Am I speaking with James?
+
+[Patient Bot]: No, this is actually the appointment desk. How can I assist you today?
+
+[Office Agent]: Thanks for letting me know.
+
+[Office Agent]: How can I help you with your tasks at the appointment desk today?
+
+[Patient Bot]: I’d like to book an appointment for a sore throat, please.
+
+[Office Agent]: Pivot Point Orthopedics specializes in joint,
+
+[Office Agent]: Muscle and bone conditions
+
+[Office Agent]: But we don't treat general medical issues like sore throats.
+
+[Patient Bot]: Oh, I see. Could you please
+
+[Office Agent]: You may want to contact your
+
+[Patient Bot]: Thank you for the information. I’ll contact my primary care provider. Have a great day! Goodbye!
+
+[Patient Bot]: Goodbye!
+
+[Office Agent]: You're welcome.
+
+[Office Agent]: Take care and hope you feel better soon.
+
+[Office Agent]: Goodbye.
+
+[Patient Bot]: Thank you! Goodbye!

@@ -1,0 +1,14 @@
+{
+  "persona_id": "urgent_care",
+  "timestamp": "2026-03-12T16:18:44.755270",
+  "transcript_file": "/Users/rohitdusanapudi/Claude/Pretty Ai/transcripts/urgent_care_20260312_161829.txt",
+  "analysis": {
+    "bugs": [],
+    "quality_assessment": {
+      "coherence_score": 9,
+      "helpfulness_score": 9,
+      "accuracy_score": 10,
+      "overall_notes": "The Office Agent handled the situation appropriately by advising the patient to seek immediate medical attention for potentially urgent symptoms. The agent clearly communicated the seriousness of the symptoms and provided the correct guidance to call 911 or visit the emergency room. The conversation was coherent and the agent maintained a professional tone throughout. There were no errors or dropped contexts, and the agent did not provide any inappropriate responses or hallucinations."
+    }
+  }
+}

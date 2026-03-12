@@ -1,0 +1,220 @@
+{
+  "call_sid": "CAc2a2af6026d2bd6a5e0098e13c04ee58",
+  "entries": [
+    {
+      "role": "bot",
+      "text": "Hello,",
+      "timestamp": "2026-03-12T16:22:43.977913"
+    },
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol, oprima el dos.",
+      "timestamp": "2026-03-12T16:22:44.900229"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics.",
+      "timestamp": "2026-03-12T16:22:46.448306"
+    },
+    {
+      "role": "agent",
+      "text": "Part of pretty good AI.",
+      "timestamp": "2026-03-12T16:22:48.752185"
+    },
+    {
+      "role": "agent",
+      "text": "My speaking with James?",
+      "timestamp": "2026-03-12T16:22:50.434948"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, this is James. How can I help you today?",
+      "timestamp": "2026-03-12T16:22:50.851971"
+    },
+    {
+      "role": "agent",
+      "text": "For verification,",
+      "timestamp": "2026-03-12T16:22:57.359690"
+    },
+    {
+      "role": "agent",
+      "text": "May I have your date of birth?",
+      "timestamp": "2026-03-12T16:22:59.123527"
+    },
+    {
+      "role": "bot",
+      "text": "Sure, it's April 12, 1985.",
+      "timestamp": "2026-03-12T16:22:59.585963"
+    },
+    {
+      "role": "bot",
+      "text": "Alright, I'd like to schedule an appointment. Can I book it for Sunday at 10 AM? That's the only time I'm available.",
+      "timestamp": "2026-03-12T16:23:10.661409"
+    },
+    {
+      "role": "agent",
+      "text": "The birth date doesn't match our records, but for demo purposes, I'll accept it.",
+      "timestamp": "2026-03-12T16:23:10.732519"
+    },
+    {
+      "role": "agent",
+      "text": "Let me check for available appointments on Sundays at 10 a.m.",
+      "timestamp": "2026-03-12T16:23:24.106548"
+    },
+    {
+      "role": "agent",
+      "text": "One moment.",
+      "timestamp": "2026-03-12T16:23:24.597111"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you!",
+      "timestamp": "2026-03-12T16:23:25.002531"
+    },
+    {
+      "role": "agent",
+      "text": "There aren't any openings on Sunday at 10 a.m.",
+      "timestamp": "2026-03-12T16:23:32.809478"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like to hear about the next available times on other days, or do you want to try a different Sunday?",
+      "timestamp": "2026-03-12T16:23:37.878828"
+    },
+    {
+      "role": "bot",
+      "text": "Could you check if there's a slot on Saturday at 10 AM? If not, I'll consider an early morning appointment on a weekday.",
+      "timestamp": "2026-03-12T16:23:38.556001"
+    },
+    {
+      "role": "agent",
+      "text": "We check for Saturday at 10 a.m. first.",
+      "timestamp": "2026-03-12T16:23:50.219948"
+    },
+    {
+      "role": "agent",
+      "text": "If nothing is available,",
+      "timestamp": "2026-03-12T16:23:51.743684"
+    },
+    {
+      "role": "agent",
+      "text": "I'll look for early morning weekday options.",
+      "timestamp": "2026-03-12T16:23:54.459026"
+    },
+    {
+      "role": "bot",
+      "text": "That sounds good, thank you.",
+      "timestamp": "2026-03-12T16:23:54.969081"
+    },
+    {
+      "role": "agent",
+      "text": "There aren't any Saturday morning openings, either.",
+      "timestamp": "2026-03-12T16:24:03.052740"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like to hear about the earliest available weekday morning appointments?",
+      "timestamp": "2026-03-12T16:24:07.144772"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, please. What are the earliest weekday mornings available?",
+      "timestamp": "2026-03-12T16:24:08.907467"
+    },
+    {
+      "role": "agent",
+      "text": "Let me check for the earliest weekday morning appointments for you.",
+      "timestamp": "2026-03-12T16:24:18.768585"
+    },
+    {
+      "role": "agent",
+      "text": "One moment.",
+      "timestamp": "2026-03-12T16:24:19.342530"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you for checking.",
+      "timestamp": "2026-03-12T16:24:20.173767"
+    },
+    {
+      "role": "agent",
+      "text": "\uc774",
+      "timestamp": "2026-03-12T16:24:21.514438"
+    },
+    {
+      "role": "bot",
+      "text": "The earliest weekday morning appointment is at 8 AM on Wednesday. Would that work for you?",
+      "timestamp": "2026-03-12T16:24:22.487039"
+    },
+    {
+      "role": "agent",
+      "text": "Actually, the earliest available weekday morning I see is Friday, March 20th at 9 a.m. with Dr. Bricker.",
+      "timestamp": "2026-03-12T16:24:36.542398"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like to book that slot or hear about other options?",
+      "timestamp": "2026-03-12T16:24:39.614342"
+    },
+    {
+      "role": "bot",
+      "text": "Let's go ahead and book the Friday at 9 AM appointment. Thank you!",
+      "timestamp": "2026-03-12T16:24:40.449118"
+    },
+    {
+      "role": "agent",
+      "text": "Just to confirm, you'd like to book Friday, March 20th at 9 a.m. with Dr. Bricker for a new patient consultation.",
+      "timestamp": "2026-03-12T16:24:53.393463"
+    },
+    {
+      "role": "agent",
+      "text": "Is that correct?",
+      "timestamp": "2026-03-12T16:24:54.440413"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, that's correct. Thank you!",
+      "timestamp": "2026-03-12T16:24:55.888862"
+    },
+    {
+      "role": "agent",
+      "text": "Your appointment is set for Friday, March twentieth at nine a.m. with Dr. Bricker.",
+      "timestamp": "2026-03-12T16:25:08.630641"
+    },
+    {
+      "role": "agent",
+      "text": "Please bring a government-issued photo ID and your insurance card.",
+      "timestamp": "2026-03-12T16:25:12.010239"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like a text reminder for this appointment?",
+      "timestamp": "2026-03-12T16:25:14.424979"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, please send me a text reminder. Thanks!",
+      "timestamp": "2026-03-12T16:25:15.396058"
+    },
+    {
+      "role": "agent",
+      "text": "You'll get a text reminder soon.",
+      "timestamp": "2026-03-12T16:25:24.176956"
+    },
+    {
+      "role": "agent",
+      "text": "If you need to change anything or have questions, just let us know.",
+      "timestamp": "2026-03-12T16:25:27.406741"
+    },
+    {
+      "role": "agent",
+      "text": "Have a great day.",
+      "timestamp": "2026-03-12T16:25:28.335286"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you, have a great day! Goodbye.",
+      "timestamp": "2026-03-12T16:25:29.298248"
+    }
+  ]
+}

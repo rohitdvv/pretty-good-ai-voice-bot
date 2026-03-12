@@ -1,0 +1,93 @@
+[Office Agent]: This call may be recorded for quality and training purposes. Para español, oprima el dos.
+
+[Patient Bot]: Hello! I'm calling to inquire about your medical office. Could you please tell me your office hours?
+
+[Patient Bot]: Thank you! Could you
+
+[Office Agent]: Thanks for calling Pivot Point Orthopedics.
+
+[Office Agent]: part of Pretty Good AI.
+
+[Office Agent]: Am I speaking with James?
+
+[Patient Bot]: I'm sorry, I can't confirm identities. Could you please provide me with your office hours for your primary care services?
+
+[Patient Bot]: Could you please let me
+
+[Office Agent]: No problem.
+
+[Office Agent]: Pivot Point Orthopedics is open Monday, Tuesday and Thursday from 9 am to 4 pm.
+
+[Office Agent]: Wednesday from 12 p.m. to 7 p.m.
+
+[Office Agent]: and Friday from nine a.m. to twelve p.m.
+
+[Office Agent]: If you need the address or more details,
+
+[Office Agent]: Just let me know.
+
+[Patient Bot]: Thank you for the information. Could you also let me know if you accept Blue Cross Blue Shield insurance?
+
+[Office Agent]: Yes, To the Point Orthopedics accepts most insurance plans, including Blue Cross Blue Shield.
+
+[Office Agent]: If you have questions about your specific coverage,
+
+[Patient Bot]: I'll be sure to check
+
+[Office Agent]: I can connect you with our team for more details.
+
+[Patient Bot]: That would be
+
+[Office Agent]: Would you like to speak with someone about your insurance?
+
+[Patient Bot]: Yes, please. I'd like to speak with someone about the details of my insurance coverage.
+
+[Office Agent]: Live transfer isn't available right now since this is a demo clinic.
+
+[Office Agent]: If you'd like, I can help answer general questions or document your request for our team to follow up with you.
+
+[Office Agent]: Would you like me to have someone from the clinic contact you about your insurance coverage?
+
+[Patient Bot]: Yes, please. I'd appreciate it if someone could contact me about my insurance coverage. Thank you!
+
+[Office Agent]: I'll need to confirm your identity before I can document your request for a follow-up.
+
+[Office Agent]: May I confirm your first name is James for this request?
+
+[Patient Bot]: My name is Emily Davis, not James. My date of birth is October 10, 1996, and my phone number is +1-555-045-5000.
+
+[Office Agent]: May I have your first name, last name, and date of birth?
+
+[Patient Bot]: Sure! My name is Emily Davis, and my date of birth is October 10, 1996.
+
+[Office Agent]: I heard your birthday is October 10, 1996.
+
+[Office Agent]: Is that correct?
+
+[Patient Bot]: Yes, that's correct! My date of birth is October 10, 1996.
+
+[Office Agent]: Can you please provide the spelling of your first and last name?
+
+[Patient Bot]: Of course! My first name is E-M-I-L-Y, and my last name is D-A-V-I-S.
+
+[Office Agent]: What other phone number do we have on file for you?
+
+[Patient Bot]: I'm only able to provide the phone number +1-555-045-5000.
+
+[Office Agent]: I'm unable to verify your information in our system right now.
+
+[Office Agent]: Since live support isn't available in this demo, I recommend calling the clinic directly for help with your insurance coverage.
+
+[Office Agent]: If you have any other questions, I'm here to help.
+
+[Patient Bot]: Thank you for your help! I'll reach out to the clinic directly for further assistance. Have a great day!
+
+[Office Agent]: You're welcome.
+
+[Office Agent]: If you need anything else...
+
+[Office Agent]: Just let me know.
+
+[Office Agent]: Have a great day.
+
+[Patient Bot]: Thank you, you too! Goodbye!

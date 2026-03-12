@@ -1,0 +1,27 @@
+{
+  "persona_id": "interrupt_test",
+  "timestamp": "2026-03-12T15:57:45.077174",
+  "transcript_file": "/Users/rohitdusanapudi/Claude/Pretty Ai/transcripts/interrupt_test_20260312_155726.txt",
+  "analysis": {
+    "bugs": [
+      {
+        "bug": "Dropped Context - Confusion about caller's identity",
+        "severity": "Medium",
+        "location": "Exchange 5-7",
+        "details": "The agent incorrectly assumes the caller is James and later refers to the caller as the appointment desk, which is incorrect. The agent should have maintained the context that the caller is a patient trying to book an appointment."
+      },
+      {
+        "bug": "Incomplete Handling - Failure to redirect appropriately",
+        "severity": "High",
+        "location": "Exchange 11-13",
+        "details": "The agent correctly identifies that they do not treat sore throats but fails to provide specific guidance on where the patient should go. The agent should have suggested contacting a primary care provider or given more specific advice on where to seek help for a sore throat."
+      }
+    ],
+    "quality_assessment": {
+      "coherence_score": 5,
+      "helpfulness_score": 4,
+      "accuracy_score": 7,
+      "overall_notes": "The agent struggled with maintaining context, especially with interruptions and identity confusion. While it correctly identified the scope of services, it failed to provide helpful redirection for the patient's needs. The conversation flow was disrupted by the agent's inability to handle interruptions and topic changes effectively."
+    }
+  }
+}

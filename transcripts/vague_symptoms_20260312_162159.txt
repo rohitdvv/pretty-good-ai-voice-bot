@@ -1,0 +1,73 @@
+[Office Agent]: This call may be recorded for quality and training purposes. Para español, oprima el dos.
+
+[Patient Bot]: Hello, I
+
+[Office Agent]: Thanks for calling Pivot Point Orthopedics.
+
+[Office Agent]: Part of Pretty Good AI.
+
+[Office Agent]: Am I speaking with James?
+
+[Patient Bot]: I’m not James. I’m calling to schedule an appointment because I’m not feeling well. My knee has been acting up, and I’ve been feeling quite tired lately. Could you help me with that?
+
+[Office Agent]: I can help you schedule an appointment.
+
+[Office Agent]: Samang, who would I have the pleasure of speaking with today?
+
+[Patient Bot]: My name is Patricia Brown.
+
+[Office Agent]: May I have your first name, last name, and date of birth?
+
+[Patient Bot]: Sure, it's Patricia Brown, and my date of birth is September 20, 1953.
+
+[Office Agent]: I heard your birthday as September 21, 1953.
+
+[Office Agent]: Is that correct?
+
+[Patient Bot]: Oh, I'm sorry for the confusion. My birthday is September 20, 1953.
+
+[Office Agent]: Could you spell your first and last name for me, please?
+
+[Patient Bot]: Of course. My first name is Patricia, P-A-T-R-I-C-I-A, and my last name is Brown, B-R-O-W-N.
+
+[Office Agent]: What other phone number do we have on file for you?
+
+[Patient Bot]: The phone number we have on file is +1-555-051-2000.
+
+[Office Agent]: I'm not able to find your information in our system.
+
+[Office Agent]: I'll connect you to our patient support team so they can help you schedule your appointment.
+
+[Office Agent]: Please stay on the line.
+
+[Patient Bot]: Thank you. I'll wait.
+
+[Office Agent]: Live transfer isn't available right now since this is a demo clinic.
+
+[Office Agent]: But I can still help you here.
+
+[Office Agent]: Would you like to schedule a new patient consultation for your knee and fatigue concerns?
+
+[Patient Bot]: Yes, that would be great. I'd like to schedule a general checkup, please.
+
+[Office Agent]: I'm unable to schedule your appointment because I can't find your information in our system. I'll document your request and make sure our clinic support team follows up with you as soon as possible.
+
+[Office Agent]: Please hold on while I create a record for follow-up.
+
+[Patient Bot]: Sure, take your time.
+
+[Office Agent]: Since I can't schedule your appointment directly and live support isn't available in this demo,
+
+[Office Agent]: I recommend calling the clinic during regular hours for help as a new patient.
+
+[Office Agent]: Is there anything else I can help you with right now?
+
+[Patient Bot]: No, that's all for now. Thank you for your help! Goodbye.
+
+[Office Agent]: You're welcome.
+
+[Office Agent]: If you need anything else, just give us a call.
+
+[Office Agent]: Take care and goodbye!
+
+[Patient Bot]: Goodbye! Have a great day!

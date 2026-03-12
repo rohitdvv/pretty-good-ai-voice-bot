@@ -1,0 +1,240 @@
+{
+  "call_sid": "CA47a4dfb37bb8abd7019e33fa4b5aa19c",
+  "entries": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol, oprima el dos.",
+      "timestamp": "2026-03-12T16:03:05.632517"
+    },
+    {
+      "role": "bot",
+      "text": "Hello! I'm calling to inquire about your medical office. Could you please tell me your office hours?",
+      "timestamp": "2026-03-12T16:03:06.090929"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you! Could you",
+      "timestamp": "2026-03-12T16:03:08.536092"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics.",
+      "timestamp": "2026-03-12T16:03:08.646475"
+    },
+    {
+      "role": "agent",
+      "text": "part of Pretty Good AI.",
+      "timestamp": "2026-03-12T16:03:10.086317"
+    },
+    {
+      "role": "agent",
+      "text": "Am I speaking with James?",
+      "timestamp": "2026-03-12T16:03:11.807122"
+    },
+    {
+      "role": "bot",
+      "text": "I'm sorry, I can't confirm identities. Could you please provide me with your office hours for your primary care services?",
+      "timestamp": "2026-03-12T16:03:13.659136"
+    },
+    {
+      "role": "bot",
+      "text": "Could you please let me",
+      "timestamp": "2026-03-12T16:03:22.547524"
+    },
+    {
+      "role": "agent",
+      "text": "No problem.",
+      "timestamp": "2026-03-12T16:03:22.586555"
+    },
+    {
+      "role": "agent",
+      "text": "Pivot Point Orthopedics is open Monday, Tuesday and Thursday from 9 am to 4 pm.",
+      "timestamp": "2026-03-12T16:03:29.031063"
+    },
+    {
+      "role": "agent",
+      "text": "Wednesday from 12 p.m. to 7 p.m.",
+      "timestamp": "2026-03-12T16:03:30.443617"
+    },
+    {
+      "role": "agent",
+      "text": "and Friday from nine a.m. to twelve p.m.",
+      "timestamp": "2026-03-12T16:03:33.399475"
+    },
+    {
+      "role": "agent",
+      "text": "If you need the address or more details,",
+      "timestamp": "2026-03-12T16:03:35.667020"
+    },
+    {
+      "role": "agent",
+      "text": "Just let me know.",
+      "timestamp": "2026-03-12T16:03:36.766168"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you for the information. Could you also let me know if you accept Blue Cross Blue Shield insurance?",
+      "timestamp": "2026-03-12T16:03:37.451479"
+    },
+    {
+      "role": "agent",
+      "text": "Yes, To the Point Orthopedics accepts most insurance plans, including Blue Cross Blue Shield.",
+      "timestamp": "2026-03-12T16:03:50.277042"
+    },
+    {
+      "role": "agent",
+      "text": "If you have questions about your specific coverage,",
+      "timestamp": "2026-03-12T16:03:52.508418"
+    },
+    {
+      "role": "bot",
+      "text": "I'll be sure to check",
+      "timestamp": "2026-03-12T16:03:52.574206"
+    },
+    {
+      "role": "agent",
+      "text": "I can connect you with our team for more details.",
+      "timestamp": "2026-03-12T16:03:55.240107"
+    },
+    {
+      "role": "bot",
+      "text": "That would be",
+      "timestamp": "2026-03-12T16:03:55.326976"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like to speak with someone about your insurance?",
+      "timestamp": "2026-03-12T16:03:58.234462"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, please. I'd like to speak with someone about the details of my insurance coverage.",
+      "timestamp": "2026-03-12T16:03:58.571506"
+    },
+    {
+      "role": "agent",
+      "text": "Live transfer isn't available right now since this is a demo clinic.",
+      "timestamp": "2026-03-12T16:04:12.302060"
+    },
+    {
+      "role": "agent",
+      "text": "If you'd like, I can help answer general questions or document your request for our team to follow up with you.",
+      "timestamp": "2026-03-12T16:04:17.936852"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like me to have someone from the clinic contact you about your insurance coverage?",
+      "timestamp": "2026-03-12T16:04:22.520280"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, please. I'd appreciate it if someone could contact me about my insurance coverage. Thank you!",
+      "timestamp": "2026-03-12T16:04:23.363511"
+    },
+    {
+      "role": "agent",
+      "text": "I'll need to confirm your identity before I can document your request for a follow-up.",
+      "timestamp": "2026-03-12T16:04:37.595450"
+    },
+    {
+      "role": "agent",
+      "text": "May I confirm your first name is James for this request?",
+      "timestamp": "2026-03-12T16:04:40.457559"
+    },
+    {
+      "role": "bot",
+      "text": "My name is Emily Davis, not James. My date of birth is October 10, 1996, and my phone number is +1-555-045-5000.",
+      "timestamp": "2026-03-12T16:04:41.844482"
+    },
+    {
+      "role": "agent",
+      "text": "May I have your first name, last name, and date of birth?",
+      "timestamp": "2026-03-12T16:04:57.698314"
+    },
+    {
+      "role": "bot",
+      "text": "Sure! My name is Emily Davis, and my date of birth is October 10, 1996.",
+      "timestamp": "2026-03-12T16:04:58.525781"
+    },
+    {
+      "role": "agent",
+      "text": "I heard your birthday is October 10, 1996.",
+      "timestamp": "2026-03-12T16:05:10.610214"
+    },
+    {
+      "role": "agent",
+      "text": "Is that correct?",
+      "timestamp": "2026-03-12T16:05:11.679043"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, that's correct! My date of birth is October 10, 1996.",
+      "timestamp": "2026-03-12T16:05:12.417856"
+    },
+    {
+      "role": "agent",
+      "text": "Can you please provide the spelling of your first and last name?",
+      "timestamp": "2026-03-12T16:05:22.087615"
+    },
+    {
+      "role": "bot",
+      "text": "Of course! My first name is E-M-I-L-Y, and my last name is D-A-V-I-S.",
+      "timestamp": "2026-03-12T16:05:22.769060"
+    },
+    {
+      "role": "agent",
+      "text": "What other phone number do we have on file for you?",
+      "timestamp": "2026-03-12T16:05:33.327980"
+    },
+    {
+      "role": "bot",
+      "text": "I'm only able to provide the phone number +1-555-045-5000.",
+      "timestamp": "2026-03-12T16:05:34.140273"
+    },
+    {
+      "role": "agent",
+      "text": "I'm unable to verify your information in our system right now.",
+      "timestamp": "2026-03-12T16:05:51.915110"
+    },
+    {
+      "role": "agent",
+      "text": "Since live support isn't available in this demo, I recommend calling the clinic directly for help with your insurance coverage.",
+      "timestamp": "2026-03-12T16:05:58.387443"
+    },
+    {
+      "role": "agent",
+      "text": "If you have any other questions, I'm here to help.",
+      "timestamp": "2026-03-12T16:06:00.376298"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you for your help! I'll reach out to the clinic directly for further assistance. Have a great day!",
+      "timestamp": "2026-03-12T16:06:01.374258"
+    },
+    {
+      "role": "agent",
+      "text": "You're welcome.",
+      "timestamp": "2026-03-12T16:06:10.151686"
+    },
+    {
+      "role": "agent",
+      "text": "If you need anything else...",
+      "timestamp": "2026-03-12T16:06:11.714343"
+    },
+    {
+      "role": "agent",
+      "text": "Just let me know.",
+      "timestamp": "2026-03-12T16:06:13.429008"
+    },
+    {
+      "role": "agent",
+      "text": "Have a great day.",
+      "timestamp": "2026-03-12T16:06:14.495813"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you, you too! Goodbye!",
+      "timestamp": "2026-03-12T16:06:14.972479"
+    }
+  ]
+}

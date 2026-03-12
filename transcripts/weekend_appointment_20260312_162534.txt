@@ -1,0 +1,85 @@
+[Patient Bot]: Hello,
+
+[Office Agent]: This call may be recorded for quality and training purposes. Para español, oprima el dos.
+
+[Office Agent]: Thanks for calling Pivot Point Orthopedics.
+
+[Office Agent]: Part of pretty good AI.
+
+[Office Agent]: My speaking with James?
+
+[Patient Bot]: Yes, this is James. How can I help you today?
+
+[Office Agent]: For verification,
+
+[Office Agent]: May I have your date of birth?
+
+[Patient Bot]: Sure, it's April 12, 1985.
+
+[Patient Bot]: Alright, I'd like to schedule an appointment. Can I book it for Sunday at 10 AM? That's the only time I'm available.
+
+[Office Agent]: The birth date doesn't match our records, but for demo purposes, I'll accept it.
+
+[Office Agent]: Let me check for available appointments on Sundays at 10 a.m.
+
+[Office Agent]: One moment.
+
+[Patient Bot]: Thank you!
+
+[Office Agent]: There aren't any openings on Sunday at 10 a.m.
+
+[Office Agent]: Would you like to hear about the next available times on other days, or do you want to try a different Sunday?
+
+[Patient Bot]: Could you check if there's a slot on Saturday at 10 AM? If not, I'll consider an early morning appointment on a weekday.
+
+[Office Agent]: We check for Saturday at 10 a.m. first.
+
+[Office Agent]: If nothing is available,
+
+[Office Agent]: I'll look for early morning weekday options.
+
+[Patient Bot]: That sounds good, thank you.
+
+[Office Agent]: There aren't any Saturday morning openings, either.
+
+[Office Agent]: Would you like to hear about the earliest available weekday morning appointments?
+
+[Patient Bot]: Yes, please. What are the earliest weekday mornings available?
+
+[Office Agent]: Let me check for the earliest weekday morning appointments for you.
+
+[Office Agent]: One moment.
+
+[Patient Bot]: Thank you for checking.
+
+[Office Agent]: 이
+
+[Patient Bot]: The earliest weekday morning appointment is at 8 AM on Wednesday. Would that work for you?
+
+[Office Agent]: Actually, the earliest available weekday morning I see is Friday, March 20th at 9 a.m. with Dr. Bricker.
+
+[Office Agent]: Would you like to book that slot or hear about other options?
+
+[Patient Bot]: Let's go ahead and book the Friday at 9 AM appointment. Thank you!
+
+[Office Agent]: Just to confirm, you'd like to book Friday, March 20th at 9 a.m. with Dr. Bricker for a new patient consultation.
+
+[Office Agent]: Is that correct?
+
+[Patient Bot]: Yes, that's correct. Thank you!
+
+[Office Agent]: Your appointment is set for Friday, March twentieth at nine a.m. with Dr. Bricker.
+
+[Office Agent]: Please bring a government-issued photo ID and your insurance card.
+
+[Office Agent]: Would you like a text reminder for this appointment?
+
+[Patient Bot]: Yes, please send me a text reminder. Thanks!
+
+[Office Agent]: You'll get a text reminder soon.
+
+[Office Agent]: If you need to change anything or have questions, just let us know.
+
+[Office Agent]: Have a great day.
+
+[Patient Bot]: Thank you, have a great day! Goodbye.

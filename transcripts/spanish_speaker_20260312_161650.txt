@@ -1,0 +1,45 @@
+[Office Agent]: This call may be recorded for quality and training purposes. Para español, oprima el dos.
+
+[Patient Bot]: Hello, I need to schedule an appointment for my annual physical, please.
+
+[Patient Bot]: I’m actually looking for
+
+[Office Agent]: Thanks for calling Pivot Point Orthopedics.
+
+[Office Agent]: Part of Pretty Good AI.
+
+[Patient Bot]: Perdón, creo que me equivoqué
+
+[Office Agent]: Am I speaking with James?
+
+[Patient Bot]: No, I'm not James. I'd like to schedule an appointment for my annual physical, please.
+
+[Patient Bot]: Thank you! I need
+
+[Office Agent]: Thanks for letting me know.
+
+[Office Agent]: Pivot Point Orthopedic.
+
+[Patient Bot]: I think I might have made a mistake. I was hoping to book an appointment for my annual physical. Could you help me with that?
+
+[Patient Bot]: Oh, I'm sorry for
+
+[Office Agent]: Pivot Point Orthopedics focuses on orthopedic care like joint, muscle, and bone conditions.
+
+[Office Agent]: We don't offer annual physicals.
+
+[Patient Bot]: Thank you for the information.
+
+[Office Agent]: but we can help with orthopedic concerns or injuries.
+
+[Office Agent]: Would you like to schedule it
+
+[Patient Bot]: Not today, gracias. Have a great day!
+
+[Office Agent]: No problem.
+
+[Office Agent]: If you ever need orthopedic care, feel free to reach out.
+
+[Office Agent]: Take care.
+
+[Patient Bot]: Thank you, take care!

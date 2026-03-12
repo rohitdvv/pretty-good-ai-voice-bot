@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+recordings/*.ulaw
+.venv/
+venv/
+.DS_Store
+twilio_2FA_recovery_code.txt

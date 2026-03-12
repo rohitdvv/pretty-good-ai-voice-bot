@@ -1,0 +1,180 @@
+{
+  "call_sid": "CAf27e4a5502736fbeefd727129cf2463c",
+  "entries": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol, oprima el dos.",
+      "timestamp": "2026-03-12T16:13:02.849259"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics.",
+      "timestamp": "2026-03-12T16:13:05.672376"
+    },
+    {
+      "role": "agent",
+      "text": "Part of Pretty Good AI.",
+      "timestamp": "2026-03-12T16:13:07.529280"
+    },
+    {
+      "role": "agent",
+      "text": "Am I speaking with James?",
+      "timestamp": "2026-03-12T16:13:10.357178"
+    },
+    {
+      "role": "bot",
+      "text": "Hello, I'm actually calling to schedule a routine checkup appointment. Could you please help me with that?",
+      "timestamp": "2026-03-12T16:13:11.710193"
+    },
+    {
+      "role": "agent",
+      "text": "For verification, may I have your date of birth?",
+      "timestamp": "2026-03-12T16:13:22.069544"
+    },
+    {
+      "role": "bot",
+      "text": "Sure, my date of birth is March 15, 1991.",
+      "timestamp": "2026-03-12T16:13:22.924615"
+    },
+    {
+      "role": "agent",
+      "text": "The birthday doesn't match our records, but for demo purposes...",
+      "timestamp": "2026-03-12T16:13:31.796578"
+    },
+    {
+      "role": "agent",
+      "text": "I'll accept it.",
+      "timestamp": "2026-03-12T16:13:32.696103"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you. I'd like to schedule a routine checkup appointment, preferably in the morning. Are there any available slots in the upcoming weeks?",
+      "timestamp": "2026-03-12T16:13:34.208029"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks, James.",
+      "timestamp": "2026-03-12T16:13:36.513627"
+    },
+    {
+      "role": "agent",
+      "text": "For a routine checkup we offer a follow-up consultation.",
+      "timestamp": "2026-03-12T16:13:40.114492"
+    },
+    {
+      "role": "agent",
+      "text": "which lasts about sixty minutes.",
+      "timestamp": "2026-03-12T16:13:41.789858"
+    },
+    {
+      "role": "agent",
+      "text": "Does that sound right, or do you have something else in mind?",
+      "timestamp": "2026-03-12T16:13:44.802021"
+    },
+    {
+      "role": "bot",
+      "text": "A 60-minute follow-up consultation sounds perfect. Could I book it for a morning time, maybe next week?",
+      "timestamp": "2026-03-12T16:13:46.497332"
+    },
+    {
+      "role": "agent",
+      "text": "Let me check morning availability for a follow-up consultation next week.",
+      "timestamp": "2026-03-12T16:13:59.907377"
+    },
+    {
+      "role": "agent",
+      "text": "One moment.",
+      "timestamp": "2026-03-12T16:14:00.185221"
+    },
+    {
+      "role": "bot",
+      "text": "Sure, take your time.",
+      "timestamp": "2026-03-12T16:14:01.496344"
+    },
+    {
+      "role": "agent",
+      "text": "We have a morning opening next Monday.",
+      "timestamp": "2026-03-12T16:14:07.732997"
+    },
+    {
+      "role": "agent",
+      "text": "March sixteenth at ten with Doctor Dudi Hauser.",
+      "timestamp": "2026-03-12T16:14:11.088382"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like to book that or hear about other options?",
+      "timestamp": "2026-03-12T16:14:13.982983"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, that time works for me. Please go ahead and book the appointment for March 16th at 10 with Dr. Dudi Hauser.",
+      "timestamp": "2026-03-12T16:14:15.136108"
+    },
+    {
+      "role": "agent",
+      "text": "Your follow-up consultation is set for Monday, March sixteenth at ten a.m. with Dr. Dudihouser.",
+      "timestamp": "2026-03-12T16:14:32.955031"
+    },
+    {
+      "role": "agent",
+      "text": "Please bring a government issued photo ID and your insurance card to the appointment.",
+      "timestamp": "2026-03-12T16:14:37.119947"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like a text reminder for this visit?",
+      "timestamp": "2026-03-12T16:14:39.902068"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, a text reminder would be great, thank you!",
+      "timestamp": "2026-03-12T16:14:41.281116"
+    },
+    {
+      "role": "agent",
+      "text": "You'll get a text reminder soon.",
+      "timestamp": "2026-03-12T16:14:49.471645"
+    },
+    {
+      "role": "agent",
+      "text": "If you need to change or cancel your appointment,",
+      "timestamp": "2026-03-12T16:14:52.161474"
+    },
+    {
+      "role": "agent",
+      "text": "Just let us know.",
+      "timestamp": "2026-03-12T16:14:53.388281"
+    },
+    {
+      "role": "agent",
+      "text": "Is there anything else I can help you with today?",
+      "timestamp": "2026-03-12T16:14:55.569535"
+    },
+    {
+      "role": "bot",
+      "text": "No, that's all for today. Thank you for your help! Goodbye!",
+      "timestamp": "2026-03-12T16:14:57.072417"
+    },
+    {
+      "role": "agent",
+      "text": "You're all set.",
+      "timestamp": "2026-03-12T16:15:03.416642"
+    },
+    {
+      "role": "agent",
+      "text": "Have a great day.",
+      "timestamp": "2026-03-12T16:15:04.785615"
+    },
+    {
+      "role": "agent",
+      "text": "Goodbye.",
+      "timestamp": "2026-03-12T16:15:05.462239"
+    },
+    {
+      "role": "bot",
+      "text": "Goodbye! Have a great day!",
+      "timestamp": "2026-03-12T16:15:06.853368"
+    }
+  ]
+}

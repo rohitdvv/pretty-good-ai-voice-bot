@@ -1,0 +1,155 @@
+{
+  "call_sid": "CAcd25533346982da2dfee3c12deeb172e",
+  "entries": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol, oprima el dos.",
+      "timestamp": "2026-03-12T16:10:19.139583"
+    },
+    {
+      "role": "bot",
+      "text": "Hello, I'm Michael Chen. I had an appointment booked",
+      "timestamp": "2026-03-12T16:10:19.504761"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics.",
+      "timestamp": "2026-03-12T16:10:22.292951"
+    },
+    {
+      "role": "agent",
+      "text": "Part of Pretty Good AI.",
+      "timestamp": "2026-03-12T16:10:24.063571"
+    },
+    {
+      "role": "agent",
+      "text": "Am I speaking with James?",
+      "timestamp": "2026-03-12T16:10:25.505811"
+    },
+    {
+      "role": "bot",
+      "text": "Hi James, I need to reschedule my appointment that I had booked for this Thursday. Something came up at work. Could we move it to next week, preferably Tuesday or Wednesday afternoon?",
+      "timestamp": "2026-03-12T16:10:27.008553"
+    },
+    {
+      "role": "agent",
+      "text": "For verification",
+      "timestamp": "2026-03-12T16:10:42.025413"
+    },
+    {
+      "role": "agent",
+      "text": "May I have your date of birth?",
+      "timestamp": "2026-03-12T16:10:43.709794"
+    },
+    {
+      "role": "bot",
+      "text": "Sure, it's June 22, 1980.",
+      "timestamp": "2026-03-12T16:10:44.121075"
+    },
+    {
+      "role": "agent",
+      "text": "The birthday doesn't match our records, but for demo purposes I'll accept it.",
+      "timestamp": "2026-03-12T16:10:54.415274"
+    },
+    {
+      "role": "bot",
+      "text": "Alright, my phone number is +1-555-019-8000.",
+      "timestamp": "2026-03-12T16:10:54.758065"
+    },
+    {
+      "role": "agent",
+      "text": "Let me check your upcoming appointments and find available times for next Tuesday or Wednesday afternoon.",
+      "timestamp": "2026-03-12T16:11:07.836224"
+    },
+    {
+      "role": "agent",
+      "text": "One moment.",
+      "timestamp": "2026-03-12T16:11:08.879773"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you, I appreciate it.",
+      "timestamp": "2026-03-12T16:11:09.247646"
+    },
+    {
+      "role": "agent",
+      "text": "You have a follow-up appointment booked for this Friday.",
+      "timestamp": "2026-03-12T16:11:18.264287"
+    },
+    {
+      "role": "agent",
+      "text": "March thirteenth at ten a.m.",
+      "timestamp": "2026-03-12T16:11:20.155599"
+    },
+    {
+      "role": "agent",
+      "text": "Is this the one you'd like to reschedule to next week, Tuesday or Wednesday afternoon?",
+      "timestamp": "2026-03-12T16:11:24.804642"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, please. I'd like to move it to either Tuesday or Wednesday afternoon next week.",
+      "timestamp": "2026-03-12T16:11:25.792025"
+    },
+    {
+      "role": "agent",
+      "text": "Let me check for available times on Tuesday or Wednesday afternoon next week for your follow-up appointment.",
+      "timestamp": "2026-03-12T16:11:40.479720"
+    },
+    {
+      "role": "agent",
+      "text": "\u0423 \u043d\u043e\u0432\u0435.",
+      "timestamp": "2026-03-12T16:11:41.084085"
+    },
+    {
+      "role": "bot",
+      "text": "Thanks for checking.",
+      "timestamp": "2026-03-12T16:11:41.668890"
+    },
+    {
+      "role": "agent",
+      "text": "I'm having trouble pulling up the available times right now.",
+      "timestamp": "2026-03-12T16:11:51.655520"
+    },
+    {
+      "role": "agent",
+      "text": "I'll document this for our clinic support team so they can follow up and help you reschedule.",
+      "timestamp": "2026-03-12T16:11:56.180994"
+    },
+    {
+      "role": "agent",
+      "text": "Please hold on while I update your request.",
+      "timestamp": "2026-03-12T16:11:58.513027"
+    },
+    {
+      "role": "bot",
+      "text": "Sure, take your time.",
+      "timestamp": "2026-03-12T16:11:59.139721"
+    },
+    {
+      "role": "agent",
+      "text": "Connecting you to a representative.",
+      "timestamp": "2026-03-12T16:12:01.795120"
+    },
+    {
+      "role": "agent",
+      "text": "Please wait.",
+      "timestamp": "2026-03-12T16:12:03.586227"
+    },
+    {
+      "role": "agent",
+      "text": "Hello, you've reached the Pretty Good AI test line.",
+      "timestamp": "2026-03-12T16:12:07.662222"
+    },
+    {
+      "role": "agent",
+      "text": "Goodbye.",
+      "timestamp": "2026-03-12T16:12:08.647020"
+    },
+    {
+      "role": "bot",
+      "text": "Goodbye, and thank you for your help!",
+      "timestamp": "2026-03-12T16:12:09.319888"
+    }
+  ]
+}

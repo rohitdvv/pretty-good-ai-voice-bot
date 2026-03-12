@@ -1,0 +1,190 @@
+{
+  "call_sid": "CA513258ef11499fe23bc2123487dab48c",
+  "entries": [
+    {
+      "role": "agent",
+      "text": "This call may be recorded for quality and training purposes. Para espa\u00f1ol, oprima el dos.",
+      "timestamp": "2026-03-12T16:19:05.335915"
+    },
+    {
+      "role": "bot",
+      "text": "Hello, I",
+      "timestamp": "2026-03-12T16:19:05.669365"
+    },
+    {
+      "role": "agent",
+      "text": "Thanks for calling Pivot Point Orthopedics.",
+      "timestamp": "2026-03-12T16:19:08.148538"
+    },
+    {
+      "role": "agent",
+      "text": "Part of Pretty Good AI.",
+      "timestamp": "2026-03-12T16:19:09.907390"
+    },
+    {
+      "role": "agent",
+      "text": "Am I speaking with James?",
+      "timestamp": "2026-03-12T16:19:11.796972"
+    },
+    {
+      "role": "bot",
+      "text": "I\u2019m not James. I\u2019m calling to schedule an appointment because I\u2019m not feeling well. My knee has been acting up, and I\u2019ve been feeling quite tired lately. Could you help me with that?",
+      "timestamp": "2026-03-12T16:19:12.910162"
+    },
+    {
+      "role": "agent",
+      "text": "I can help you schedule an appointment.",
+      "timestamp": "2026-03-12T16:19:27.850826"
+    },
+    {
+      "role": "agent",
+      "text": "Samang, who would I have the pleasure of speaking with today?",
+      "timestamp": "2026-03-12T16:19:30.649865"
+    },
+    {
+      "role": "bot",
+      "text": "My name is Patricia Brown.",
+      "timestamp": "2026-03-12T16:19:31.161168"
+    },
+    {
+      "role": "agent",
+      "text": "May I have your first name, last name, and date of birth?",
+      "timestamp": "2026-03-12T16:19:39.709564"
+    },
+    {
+      "role": "bot",
+      "text": "Sure, it's Patricia Brown, and my date of birth is September 20, 1953.",
+      "timestamp": "2026-03-12T16:19:41.104177"
+    },
+    {
+      "role": "agent",
+      "text": "I heard your birthday as September 21, 1953.",
+      "timestamp": "2026-03-12T16:19:54.066167"
+    },
+    {
+      "role": "agent",
+      "text": "Is that correct?",
+      "timestamp": "2026-03-12T16:19:54.337940"
+    },
+    {
+      "role": "bot",
+      "text": "Oh, I'm sorry for the confusion. My birthday is September 20, 1953.",
+      "timestamp": "2026-03-12T16:19:55.222424"
+    },
+    {
+      "role": "agent",
+      "text": "Could you spell your first and last name for me, please?",
+      "timestamp": "2026-03-12T16:20:05.364752"
+    },
+    {
+      "role": "bot",
+      "text": "Of course. My first name is Patricia, P-A-T-R-I-C-I-A, and my last name is Brown, B-R-O-W-N.",
+      "timestamp": "2026-03-12T16:20:07.032764"
+    },
+    {
+      "role": "agent",
+      "text": "What other phone number do we have on file for you?",
+      "timestamp": "2026-03-12T16:20:21.250060"
+    },
+    {
+      "role": "bot",
+      "text": "The phone number we have on file is +1-555-051-2000.",
+      "timestamp": "2026-03-12T16:20:21.903113"
+    },
+    {
+      "role": "agent",
+      "text": "I'm not able to find your information in our system.",
+      "timestamp": "2026-03-12T16:20:36.071502"
+    },
+    {
+      "role": "agent",
+      "text": "I'll connect you to our patient support team so they can help you schedule your appointment.",
+      "timestamp": "2026-03-12T16:20:40.366470"
+    },
+    {
+      "role": "agent",
+      "text": "Please stay on the line.",
+      "timestamp": "2026-03-12T16:20:41.913850"
+    },
+    {
+      "role": "bot",
+      "text": "Thank you. I'll wait.",
+      "timestamp": "2026-03-12T16:20:42.044050"
+    },
+    {
+      "role": "agent",
+      "text": "Live transfer isn't available right now since this is a demo clinic.",
+      "timestamp": "2026-03-12T16:20:51.645427"
+    },
+    {
+      "role": "agent",
+      "text": "But I can still help you here.",
+      "timestamp": "2026-03-12T16:20:53.165928"
+    },
+    {
+      "role": "agent",
+      "text": "Would you like to schedule a new patient consultation for your knee and fatigue concerns?",
+      "timestamp": "2026-03-12T16:20:57.728495"
+    },
+    {
+      "role": "bot",
+      "text": "Yes, that would be great. I'd like to schedule a general checkup, please.",
+      "timestamp": "2026-03-12T16:20:59.007927"
+    },
+    {
+      "role": "agent",
+      "text": "I'm unable to schedule your appointment because I can't find your information in our system. I'll document your request and make sure our clinic support team follows up with you as soon as possible.",
+      "timestamp": "2026-03-12T16:21:20.339918"
+    },
+    {
+      "role": "agent",
+      "text": "Please hold on while I create a record for follow-up.",
+      "timestamp": "2026-03-12T16:21:23.959280"
+    },
+    {
+      "role": "bot",
+      "text": "Sure, take your time.",
+      "timestamp": "2026-03-12T16:21:24.255792"
+    },
+    {
+      "role": "agent",
+      "text": "Since I can't schedule your appointment directly and live support isn't available in this demo,",
+      "timestamp": "2026-03-12T16:21:34.912705"
+    },
+    {
+      "role": "agent",
+      "text": "I recommend calling the clinic during regular hours for help as a new patient.",
+      "timestamp": "2026-03-12T16:21:38.914269"
+    },
+    {
+      "role": "agent",
+      "text": "Is there anything else I can help you with right now?",
+      "timestamp": "2026-03-12T16:21:41.349777"
+    },
+    {
+      "role": "bot",
+      "text": "No, that's all for now. Thank you for your help! Goodbye.",
+      "timestamp": "2026-03-12T16:21:42.029304"
+    },
+    {
+      "role": "agent",
+      "text": "You're welcome.",
+      "timestamp": "2026-03-12T16:21:50.242551"
+    },
+    {
+      "role": "agent",
+      "text": "If you need anything else, just give us a call.",
+      "timestamp": "2026-03-12T16:21:52.238652"
+    },
+    {
+      "role": "agent",
+      "text": "Take care and goodbye!",
+      "timestamp": "2026-03-12T16:21:53.725596"
+    },
+    {
+      "role": "bot",
+      "text": "Goodbye! Have a great day!",
+      "timestamp": "2026-03-12T16:21:54.679869"
+    }
+  ]
+}

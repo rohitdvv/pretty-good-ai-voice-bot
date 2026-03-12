@@ -1,0 +1,97 @@
+[Patient Bot]: Hello, I
+
+[Office Agent]: This call may be recorded for quality and training purposes. Para español, oprima el dos.
+
+[Office Agent]: Thanks for calling Pivot Point Orthopedics.
+
+[Office Agent]: Part of Pretty Good AI.
+
+[Office Agent]: Am I speaking with James?
+
+[Patient Bot]: Hello, this is Nancy Taylor. Could you please help me schedule an appointment?
+
+[Office Agent]: May I have your first name, last name, and date of birth?
+
+[Patient Bot]: Sure, my name is Nancy Taylor, and my date of birth is May 18, 1994.
+
+[Office Agent]: I know your birthday is May 18, 1994.
+
+[Office Agent]: Is that correct?
+
+[Patient Bot]: Yes, that’s correct.
+
+[Office Agent]: Could you spell your first and last name for me, please?
+
+[Patient Bot]: Of course. My first name is Nancy, N-A-N-C-Y, and my last name is Taylor, T-A-Y-L-O-R.
+
+[Office Agent]: What other phone number do we have on file for you?
+
+[Patient Bot]: The phone number I have on file is +1-555-104-5000.
+
+[Office Agent]: I'm not finding a patient record for you in our system. I can connect you to our patient support team so they can help you schedule your appointment.
+
+[Office Agent]: Please stay on the line while I transfer your call.
+
+[Patient Bot]: Thank you, I'll wait for the transfer.
+
+[Office Agent]: Live transfer isn't available right now since this is a demo clinic.
+
+[Office Agent]: If you'd like, I can still help answer questions or provide information about Pivot Point Orthopedics.
+
+[Office Agent]: Would you like to continue with me?
+
+[Patient Bot]: Yes, that would be great. Could you let me know the earliest and latest appointment times available?
+
+[Office Agent]: Since I don't have your patient record, I can't check exact appointment times.
+
+[Office Agent]: but I can share that Pivot Point Orthopedics offers appointments Monday through Friday with...
+
+[Office Agent]: Early morning and evening options on some days.
+
+[Office Agent]: If you'd like to become a new patient, our support team can help you get started.
+
+[Office Agent]: Would you like more details about the clinic or providers?
+
+[Patient Bot]: Yes, I'd appreciate more details about the clinic and the providers. Could you tell me about the types of services offered?
+
+[Office Agent]: Cinnet Point Orthopedics treats joint, muscle and bone conditions.
+
+[Office Agent]: We help with sports injuries, chronic pain, post-surgery recovery, and physical therapy. Our team includes experienced doctors and physical therapists who offer new patient consultations.
+
+[Office Agent]: Follow-ups?
+
+[Office Agent]: procedures and rehab sessions, all in one location.
+
+[Office Agent]: We welcome new patients and accept most insurance plans.
+
+[Office Agent]: Would you like to hear about our providers?
+
+[Patient Bot]: Yes, I'd love to know more about the providers. What can you tell me about their specialties and experience?
+
+[Office Agent]: We have three doctors and two physical therapists.
+
+[Office Agent]: Dr. Duddy Houser focuses on quick orthopedic procedures and first-time evaluations.
+
+[Office Agent]: Dr. Doug Ross handles complex or advanced orthopedic procedures, often for challenging cases.
+
+[Office Agent]: Dr. Adam Bricker provides care for a wide range of joint and muscle conditions.
+
+[Office Agent]: seeing both new and returning patients.
+
+[Office Agent]: Wynn Anderson and Carl Mintz are our physical therapists.
+
+[Office Agent]: Helping patients recover strength and mobility after injury or surgery.
+
+[Office Agent]: Would you like more details about a specific provider or service?
+
+[Patient Bot]: No, I think I have all the information I need for now. Thank you for your help!
+
+[Office Agent]: You're welcome.
+
+[Office Agent]: If you have more questions or want to schedule an appointment,
+
+[Office Agent]: Just call us any time.
+
+[Office Agent]: Have a great day!
+
+[Patient Bot]: Thank you, you too! Goodbye!

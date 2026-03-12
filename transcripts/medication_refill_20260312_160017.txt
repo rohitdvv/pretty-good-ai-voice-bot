@@ -1,0 +1,65 @@
+[Office Agent]: This call may be recorded for quality and training purposes. Para español, oprima el dos.
+
+[Office Agent]: Thanks for calling Pivot Point Orthopedics.
+
+[Office Agent]: Part of Pretty Good AI.
+
+[Office Agent]: Am I speaking with James?
+
+[Patient Bot]: I'm not James. How can I help you today?
+
+[Office Agent]: Thanks for letting me know.
+
+[Office Agent]: Are you calling for information about the clinic, or is this about a specific patient?
+
+[Patient Bot]: I'm calling to request a refill on my blood pressure medication.
+
+[Office Agent]: I can help with that.
+
+[Office Agent]: May I have the first name of the patient who needs the medication refill?
+
+[Patient Bot]: Sure, the first name is Robert.
+
+[Office Agent]: May I have your first name, last name, and date of birth?
+
+[Patient Bot]: My name is Robert Williams, and my date of birth is January 8th, 1963.
+
+[Office Agent]: I heard your birthday as January 8th.
+
+[Office Agent]: 1963
+
+[Patient Bot]: Yes, that's correct.
+
+[Office Agent]: Is that correct?
+
+[Office Agent]: Could you spell your first and last name for me, please?
+
+[Patient Bot]: Certainly. My first name is Robert, R-O-B-E-R-T, and my last name is Williams, W-I-L-L-I-A-M-S.
+
+[Office Agent]: What other phone number do we have on file for you?
+
+[Patient Bot]: The phone number on file is +1-555-033-1000.
+
+[Office Agent]: I'm not able to find a patient record for Robert.
+
+[Office Agent]: I can connect you to our patient support team for help with your medication refill.
+
+[Office Agent]: Would you like me to transfer you now?
+
+[Patient Bot]: Yes, please. That would be helpful. Thank you.
+
+[Office Agent]: Live transfer isn't available right now since this is a demo clinic.
+
+[Office Agent]: In a real situation, I would have connected you to a support team member.
+
+[Office Agent]: Is there anything else I can help you with today?
+
+[Patient Bot]: No, that's all for now. Thank you for your help! Goodbye!
+
+[Office Agent]: You're welcome.
+
+[Office Agent]: Have a great day!
+
+[Office Agent]: Goodbye.
+
+[Patient Bot]: Goodbye! Have a great day!
