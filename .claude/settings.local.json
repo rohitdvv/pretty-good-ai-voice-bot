@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(done)",
-      "Bash(grep -o '555-[0-9]*' \"/Users/rohitdusanapudi/Claude/Pretty Ai/personas/\"*.json)",
-      "Bash(grep -o '+1-555-[0-9-]*' \"/Users/rohitdusanapudi/Claude/Pretty Ai/personas/\"*.json)"
-    ]
-  }
-}
