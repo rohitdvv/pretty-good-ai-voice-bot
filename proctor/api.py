@@ -127,14 +127,38 @@ def issue_verify(target_id: str):
     t = db.get_target(target_id)
     if not t:
         raise HTTPException(404, "target not found")
-    code = consent.issue_verification(t)
-    # The code is delivered out-of-band by calling/posting to the target (proving control).
-    # It is returned in the response ONLY in local dev mode (PROCTOR_DEV_ECHO_CODE=1).
-    resp = {"issued": True, "note": "Code delivered to the target; echo it back to verify ownership."}
+    try:
+        code = consent.issue_verification(t)
+    except consent.ConsentError as e:
+        raise HTTPException(429, str(e))
+
+    if t.channel == "chat":
+        # Chat ownership is proven by hosting the code on the target's own origin (ACME HTTP-01
+        # style). Returning the code is safe: proof requires control of that server, not an echo.
+        return {"issued": True, "method": "http_challenge", "code": code,
+                "host_at": consent.well_known_url(t.endpoint),
+                "note": "Host this exact code at the URL above, then POST /verify/check."}
+
+    # Voice/other: the code is delivered out-of-band (a call-back to the number); echoed only in dev.
+    resp = {"issued": True, "method": "callback_code",
+            "note": "Code delivered to the target; echo it back to verify ownership."}
     if config.DEV_ECHO_CODE:
         resp["code"] = code
         resp["dev_note"] = "PROCTOR_DEV_ECHO_CODE is on — do not enable on a shared deployment."
     return resp
+
+
+@app.post("/api/targets/{target_id}/verify/check")
+def check_verify(target_id: str):
+    """Verify a chat target by fetching its hosted ownership challenge."""
+    t = db.get_target(target_id)
+    if not t:
+        raise HTTPException(404, "target not found")
+    if t.channel != "chat":
+        raise HTTPException(400, "HTTP challenge applies to chat targets only")
+    if consent.verify_by_http(t):
+        return {"verified": True}
+    raise HTTPException(400, f"challenge not satisfied; host the code at {consent.well_known_url(t.endpoint)}")
 
 
 @app.post("/api/targets/{target_id}/verify")
@@ -142,6 +166,10 @@ def confirm_verify(target_id: str, body: VerifyIn):
     t = db.get_target(target_id)
     if not t:
         raise HTTPException(404, "target not found")
+    # Echoing a code is only accepted for the callback method (and only meaningful in dev); chat
+    # targets must prove control via the HTTP challenge (/verify/check), not by echoing.
+    if t.channel == "chat" and not config.DEV_ECHO_CODE:
+        raise HTTPException(400, "chat targets verify via POST /verify/check (HTTP challenge)")
     ok = consent.confirm_verification(t, body.code)
     if not ok:
         raise HTTPException(400, "code did not match")

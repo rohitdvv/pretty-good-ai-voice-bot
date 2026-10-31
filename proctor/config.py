@@ -58,6 +58,10 @@ API_KEY = os.getenv("PROCTOR_API_KEY", "")
 DEV_ECHO_CODE = os.getenv("PROCTOR_DEV_ECHO_CODE", "0") in ("1", "true", "True")
 VERIFY_TTL_SECONDS = int(os.getenv("PROCTOR_VERIFY_TTL", "600"))   # code lifetime
 VERIFY_MAX_ATTEMPTS = int(os.getenv("PROCTOR_VERIFY_MAX_ATTEMPTS", "5"))
+VERIFY_MAX_ISSUES = int(os.getenv("PROCTOR_VERIFY_MAX_ISSUES", "5"))  # cap code reissues (anti-brute-force)
+# Chat ownership is proven via an HTTP challenge (ACME HTTP-01 style): the owner hosts the issued
+# code at this path on the target's own origin, proving they control that server.
+VERIFY_WELL_KNOWN_PATH = "/.well-known/proctor-verify.txt"
 DEMO_PROFILES = ("clinic", "support", "bank")
 
 

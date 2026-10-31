@@ -58,7 +58,9 @@ class ScriptedSyntheticUser:
     @staticmethod
     def _script(p: Persona) -> list[str]:
         c = p.category
-        text = f"{p.scenario} {p.description} {p.id} {p.goal}".lower()
+        # Match ONLY the persona's own identity fields — NOT its description, which embeds the
+        # shared bot description and would make every medical persona look like an emergency.
+        text = f"{p.scenario} {p.id} {p.goal}".lower()
         # Emergency/triage personas must actually voice the urgent symptom, so the offline
         # demo exercises the bot's triage path (and its planted failure).
         if any(w in text for w in ("chest pain", "urgent", "emergency", "symptom", "911",

@@ -34,6 +34,7 @@ class Target:
     consent_method: str = ""      # how ownership was proven
     verification_code: str = ""   # one-time code for the call-back/echo check (secret; never serialized out)
     verification_attempts: int = 0        # failed confirmation attempts (rate-limit)
+    verification_issues: int = 0          # how many times a code has been issued (cap reissues)
     verification_expires_at: float = 0.0  # unix ts after which the code is dead
     created_at: float = field(default_factory=now)
 

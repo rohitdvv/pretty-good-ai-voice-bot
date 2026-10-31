@@ -14,10 +14,11 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 # Isolate the DB for this test run.
 os.environ["PROCTOR_DB"] = tempfile.mktemp(suffix=".db")
 
-from proctor import db, consent
+from proctor import db, consent, config, reporting
 from proctor.models import Rubric, Dimension, HardConstraint, Suite, Target, _id
 from proctor.netguard import validate_external_url, UnsafeURLError
-from proctor import reporting
+from proctor.personas import generate as gen_personas
+from proctor.execution.synthetic import ScriptedSyntheticUser
 
 
 def test_ssrf_guard():
@@ -69,6 +70,29 @@ def test_zero_scored_blocks():
     rep = reporting.build_report("run_x", _suite(), results=[], gates={})
     assert rep["gate_verdict"] == "BLOCK"
     assert any("nothing was tested" in r for r in rep["gate_reasons"])
+
+
+def test_reissue_cap():
+    db.init()
+    t = Target.new("t3", "chat", "https://example.com/chat")
+    db.save_target(t)
+    for _ in range(config.VERIFY_MAX_ISSUES):
+        consent.issue_verification(t)
+    try:
+        consent.issue_verification(t)
+        assert False, "reissue beyond the cap should raise"
+    except consent.ConsentError:
+        pass
+
+
+def test_offline_medical_suite_not_all_emergency():
+    # A medical suite must not turn every persona into a chest-pain call (bug: description leaked
+    # into the per-persona emergency trigger).
+    _, personas = gen_personas("A medical clinic booking assistant handling appointments and symptoms",
+                               count=6, channel="demo")
+    first_lines = [ScriptedSyntheticUser(p).lines[0].lower() for p in personas]
+    emergency = [l for l in first_lines if "chest pain" in l]
+    assert 0 < len(emergency) < len(first_lines), "exactly the emergency persona(s) should voice chest pain"
 
 
 def test_missing_baseline_blocks():
