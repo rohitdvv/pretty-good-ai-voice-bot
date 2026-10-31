@@ -145,6 +145,10 @@
 const $ = s => document.querySelector(s);
 let CURRENT_RUN = null, POLL = null, SUITE = null;
 
+// Escape any model/target-controlled text before it touches innerHTML (prevents stored XSS).
+function esc(v){ return String(v==null?'':v).replace(/[&<>"']/g, c =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
 async function api(path, method='GET', body){
   const r = await fetch('/api'+path, {method, headers:{'Content-Type':'application/json'},
     body: body?JSON.stringify(body):undefined});
@@ -182,8 +186,15 @@ async function genAndRun(){
       const ep = $('#endpoint').value.trim();
       if(!ep){ alert('Enter the chat endpoint URL.'); setBusy('#genBtn',false,'Generate suite & run'); return; }
       target = await api('/targets','POST',{name:'My bot', channel:'chat', endpoint:ep, description:desc});
-      alert('Note: a real chat target must pass ownership verification before running (consent gate). Using it directly here for the MVP.');
-      target.consent_status='verified';
+      // Chat targets must pass the ownership/consent gate before running. The code is delivered
+      // out-of-band; it is returned here only in local dev mode (PROCTOR_DEV_ECHO_CODE=1).
+      const issued = await api('/targets/'+target.id+'/verify/issue','POST');
+      if(issued.code){
+        await api('/targets/'+target.id+'/verify','POST',{code:issued.code});
+      } else {
+        alert('Ownership verification required for this chat target.\n\nA one-time code was sent to the target endpoint. Verify it from the CLI:\n  proctor targets verify '+target.id+' --code <code>\n\n(For local testing, start the server with PROCTOR_DEV_ECHO_CODE=1 to auto-verify here.)');
+        setBusy('#genBtn',false,'Generate suite & run'); return;
+      }
     }
     const run = await api('/runs','POST',{suite_id:suite.id, target_id:target.id});
     watchRun(run.id);
@@ -213,7 +224,7 @@ function renderReport(run){
   $('#reportTitle').textContent = run.status==='failed'?'Run failed':'Report';
   const v = rep.gate_verdict || '—';
   $('#verdict').innerHTML = `<span class="verdict ${v}">${v}</span>`;
-  if(run.status==='failed'){ $('#reportBody').innerHTML = `<p class="bad">${(rep.gate_reasons||[]).join('; ')||rep.error}</p>`; return; }
+  if(run.status==='failed'){ $('#reportBody').innerHTML = `<p style="color:var(--bad)">${esc((rep.gate_reasons||[]).join('; ')||rep.error||'run failed')}</p>`; return; }
 
   const dims = Object.entries(rep.dimension_summary||{}).map(([k,v])=>`
      <div class="dim"><div class="n">${k}</div>
@@ -221,21 +232,21 @@ function renderReport(run){
        <div class="mono" style="width:40px;text-align:right">${v.toFixed(2)}</div></div>`).join('');
 
   const rows = (rep.personas||[]).map(p=>`
-     <tr class="clk" onclick="showConvs('${p.persona_id}')">
+     <tr class="clk" onclick="showConvs('${esc(p.persona_id)}')">
        <td><span class="bar" style="display:inline-block;width:60px;vertical-align:middle">
            <i style="width:${(p.pass_rate*100)|0}%;background:${color(p.pass_rate)}"></i></span>
            <b class="mono">${p.pass_rate.toFixed(2)}</b></td>
-       <td><span class="pill">${p.category}</span></td>
-       <td class="mono">${p.persona_id}</td>
-       <td class="muted">${p.scenario}</td>
+       <td><span class="pill">${esc(p.category)}</span></td>
+       <td class="mono">${esc(p.persona_id)}</td>
+       <td class="muted">${esc(p.scenario)}</td>
        <td class="mono muted">${p.passes}/${p.n}</td>
        <td class="mono muted">[${p.ci[0]},${p.ci[1]}]</td>
        <td class="mono">${p.flakiness>=0.5?'⚠ '+p.flakiness.toFixed(2):''}</td>
      </tr>`).join('');
 
   const crit = (rep.critical_failures||[]).map(c=>`
-     <div class="crit"><b class="mono">${c.persona_id}</b> — violated: ${c.violations.join(', ')}
-       ${c.evidence.map(e=>`<div class="muted" style="margin-top:4px">↳ [${e.severity}] ${e.constraint}: ${e.reasoning||''}</div>`).join('')}
+     <div class="crit"><b class="mono">${esc(c.persona_id)}</b> — violated: ${esc((c.violations||[]).join(', '))}
+       ${(c.evidence||[]).map(e=>`<div class="muted" style="margin-top:4px">↳ [${esc(e.severity)}] ${esc(e.constraint)}: ${esc(e.reasoning||'')}</div>`).join('')}
      </div>`).join('');
 
   let regHtml='';
@@ -262,11 +273,11 @@ function renderReport(run){
 async function showConvs(personaId){
   const area = $('#convArea'); area.innerHTML = '<p class="muted"><span class="spin"></span> loading transcripts…</p>';
   const convs = (await api('/runs/'+CURRENT_RUN+'/conversations')).filter(c=>c.persona_id===personaId);
-  area.innerHTML = `<h3 style="margin-top:18px">Transcripts — ${personaId}</h3>` + convs.map(c=>{
+  area.innerHTML = `<h3 style="margin-top:18px">Transcripts — ${esc(personaId)}</h3>` + convs.map(c=>{
     const res=c.result||{}; const badge = res.passed?'<span class="verdict PASS">PASS</span>':'<span class="verdict BLOCK">FAIL</span>';
-    const t = c.transcript.map(x=>`<div class="t-${x.role}"><b>${x.role}:</b> ${x.text}</div>`).join('');
-    const ev=(res.evidence||[]).map(e=>`<div class="muted">↳ [${e.severity}] ${e.constraint}: ${e.judge_reasoning||''}</div>`).join('');
-    return `<div style="margin-top:8px">${badge} <span class="mono muted">score ${res.score??'—'} · repeat ${c.repeat} · ${(res.judges||[]).join(',')}</span>
+    const t = c.transcript.map(x=>`<div class="t-${x.role==='agent'?'agent':'user'}"><b>${esc(x.role)}:</b> ${esc(x.text)}</div>`).join('');
+    const ev=(res.evidence||[]).map(e=>`<div class="muted">↳ [${esc(e.severity)}] ${esc(e.constraint)}: ${esc(e.judge_reasoning||'')}</div>`).join('');
+    return `<div style="margin-top:8px">${badge} <span class="mono muted">score ${res.score??'—'} · repeat ${c.repeat} · ${esc((res.judges||[]).join(','))}</span>
       <div class="transcript">${t||'<i class="muted">no transcript</i>'}${ev}</div></div>`;
   }).join('');
   area.scrollIntoView({behavior:'smooth',block:'nearest'});

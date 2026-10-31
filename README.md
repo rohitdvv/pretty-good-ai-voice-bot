@@ -1,118 +1,105 @@
-# Pretty Good AI — Voice Bot Tester
+# Proctor — Conversational AI Quality & Safety Assurance
 
-An automated voice bot that calls a medical office AI agent, simulates realistic patient conversations, records everything, and identifies bugs.
+> **Point Proctor at any AI bot — voice or chat. It unleashes a swarm of realistic synthetic users
+> on it, then hands you a scored, statistically-grounded report of every way it breaks, before your
+> customers find out.**
 
-## Architecture
+Every team shipping a conversational AI agent has the same unsolved problem: they can't know how it
+behaves across the long tail of real human inputs, the system is non-deterministic, and every prompt
+change is a silent regression risk. Proctor is the automated QA, evaluation, and continuous-assurance
+layer for conversational AI — the `npm test` a conversation never had.
 
-The system has four layers:
+📄 **MIT licensed.** · 📐 Full design corpus in [`docs/`](docs/README.md) · 🚀 Run it in 60 seconds below.
 
-1. **Telephony (Twilio)** — Places outbound calls and streams bidirectional audio via WebSocket Media Streams. Twilio also records the full call as a backup.
+---
 
-2. **Conversation Engine (OpenAI Realtime API)** — Receives the office agent's audio, generates patient responses in real-time using GPT-4o's voice capabilities. Each call uses a different "patient persona" (system prompt) that defines the patient's personality, scenario, and goals.
+## The loop
 
-3. **Webhook Server (FastAPI)** — Bridges Twilio's audio stream to OpenAI's Realtime API. Captures transcripts from both sides and saves raw audio for MP3 conversion.
+```
+  CONNECT            GENERATE              EXECUTE             EVALUATE            ASSURE
+  point us at   →   auto-build a    →    a swarm of     →   judge ensemble  →   scored report +
+  a bot (#/URL)     tailored suite       synthetic users     + real stats        CI regression gate
+  + prove consent   for your domain      talk to the bot     + evidence          (continuous)
+```
 
-4. **Bug Detector (GPT-4o)** — Post-call analysis of each transcript. Looks for logic errors (e.g., booking on closed days), safety issues (e.g., not triaging chest pain), dropped context, and hallucinations. Generates structured bug reports with severity ratings.
-
-**Why these choices?** Twilio is the most reliable telephony API with excellent WebSocket streaming support. OpenAI's Realtime API provides natural, low-latency voice conversations — critical since the #1 evaluation criterion is coherent voice interaction. FastAPI handles async WebSocket traffic efficiently. Using GPT-4o for post-call analysis (separate from the voice model) gives deeper, more structured bug detection than trying to detect issues during the call.
-
-## Prerequisites
-
-- **Python 3.11+**
-- **ffmpeg** (for audio conversion): `brew install ffmpeg`
-- **ngrok** (for public webhooks): `brew install ngrok`
-- **Twilio account** with a phone number ([twilio.com](https://www.twilio.com))
-- **OpenAI API key** with access to the Realtime API ([platform.openai.com](https://platform.openai.com))
-
-## Setup
+## Quickstart
 
 ```bash
-# 1. Clone and enter the project
-git clone <your-repo-url>
-cd pretty-good-ai-voice-bot
-
-# 2. Create virtual environment
-python -m venv .venv
-source .venv/bin/activate
-
-# 3. Install dependencies
+python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-
-# 4. Configure environment variables
-cp .env.example .env
-# Edit .env with your actual credentials
-
-# 5. Start ngrok tunnel (in a separate terminal)
-ngrok http 8765
-# Copy the https URL (e.g., https://abc123.ngrok-free.app)
-# Paste it as PUBLIC_URL in your .env file
 ```
 
-## Running
+**60-second demo — no phone, no API key needed.** Runs the whole pipeline against a built-in,
+deliberately-flawed bot and catches its planted safety bug:
 
 ```bash
-# List all available patient personas
-python main.py --list
-
-# Run a single persona
-python main.py --persona scheduling_simple
-
-# Run multiple specific personas
-python main.py --persona scheduling_simple weekend_appointment urgent_care
-
-# Run ALL personas (12 calls)
-python main.py --all
-
-# Run all with custom delay between calls
-python main.py --all --delay 30
+PROCTOR_MODE=offline python -m proctor.cli demo --verbose
 ```
 
-## Patient Personas
+With an `OPENAI_API_KEY` in `.env`, it runs **real** LLM conversations and judging:
 
-| ID | Scenario | Tests |
+```bash
+python -m proctor.cli demo --profile clinic --verbose
+```
+
+**The dashboard:**
+
+```bash
+python -m proctor.server     # → http://127.0.0.1:8080
+```
+
+Full guide: [`proctor/QUICKSTART.md`](proctor/QUICKSTART.md).
+
+## What's inside
+
+| Area | What it does | Docs |
 |---|---|---|
-| `scheduling_simple` | New patient books checkup | Basic scheduling flow |
-| `scheduling_reschedule` | Reschedule existing appointment | Appointment lookup + change |
-| `scheduling_cancel` | Cancel and transfer records | Cancellation handling |
-| `medication_refill` | Refill blood pressure meds | Medication name handling |
-| `office_hours_question` | Ask about hours/location/insurance | Information accuracy |
-| `weekend_appointment` | Request Sunday appointment | Office hour validation |
-| `vague_symptoms` | Rambling, confused patient | Ambiguity handling |
-| `urgent_care` | Chest pain symptoms | Emergency triage |
-| `spanish_speaker` | Mixed Spanish/English | Language accommodation |
-| `multiple_requests` | 3 requests in one call | Multi-task handling |
-| `interrupt_test` | Frequent interruptions | Conversation resilience |
-| `after_hours` | 6:30 AM / 8 PM appointment | Time boundary validation |
+| **Auto-persona generator** | Describe any bot → a tailored suite (happy / variation / edge / adversarial) | [03 §3](docs/03-backend-systems.md) |
+| **Generalized evaluator** | A rubric derived from the bot description + a multi-dimension judge with evidence | [03 §4](docs/03-backend-systems.md) |
+| **The scoring math** | Gated scores, Wilson CIs, tiered repeats, Bot Health + Safety Risk, regression tests + FDR | [04](docs/04-scoring-and-math.md) |
+| **Run orchestrator** | Fan out persona × repeat, consent gate, bounded concurrency, aggregate | [03 §1](docs/03-backend-systems.md) |
+| **Trust & consent** | Hard ownership gate, SSRF guard, single-use codes, secret redaction | [06](docs/06-trust-security-compliance.md) |
+| **REST API + dashboard** | Everything is an API; the UI is just a client | [05](docs/05-data-model-and-api.md) |
+| **CI/CD gate** | `proctor gate …` exits non-zero when safety or task success regresses | [05 §3](docs/05-data-model-and-api.md) |
 
-## Output
+## CI/CD regression gate
 
-After each run, you'll find:
+```bash
+python -m proctor.cli gate --suite <suite_id> --target <target_id> --baseline <previous_run_id>
+# exits non-zero (fails the build) if a critical persona regresses or the baseline is invalid
+```
 
-- **`recordings/`** — MP3 audio files of each call
-- **`transcripts/`** — JSON and readable .txt transcripts
-- **`reports/`** — Individual bug reports (JSON) and a summary report (Markdown)
+## Channels
 
-## Bug Detection Strategy
+| Channel | Status | Notes |
+|---|---|---|
+| `demo` | ✅ built-in | deliberately-flawed local bot — demo the whole loop with zero setup |
+| `chat` | ✅ | drives a customer HTTP chat endpoint (SSRF-guarded, consent-gated) |
+| `voice` | 🔌 seam | wraps the original Twilio + OpenAI Realtime pipeline (see below) |
 
-The bug detector automatically checks for:
+## Tests
 
-- **Logic errors** — Confirming appointments when the office is closed
-- **Safety failures** — Not recognizing urgent symptoms like chest pain
-- **Information accuracy** — Wrong office hours, locations, or insurance info
-- **Context retention** — Forgetting patient info mid-conversation
-- **Completeness** — Missing one of multiple patient requests
-- **Hallucinations** — Making up doctors, times, or policies
-- **Conversation quality** — Handling interruptions, language barriers, vague requests
+```bash
+python tests/test_stats.py        # the scoring math (docs/04 worked examples)
+python tests/test_hardening.py    # SSRF guard, consent codes, fail-safe gate verdicts
+```
 
-Each bug is rated Critical/High/Medium/Low with details on what happened and what should have happened.
+## The voice engine (origin)
 
-## Environment Variables
+Proctor grew out of an automated **voice** bot tester that calls a medical-office AI agent via Twilio,
+drives a live conversation with OpenAI's Realtime API, records/transcribes it, and analyzes it for
+bugs. That stack still lives at the repo root (`caller.py`, `server.py`, `bug_detector.py`,
+`main.py`, `personas/`) and is the seam the `voice` channel plugs into. See
+[`ARCHITECTURE.md`](ARCHITECTURE.md) for its design.
 
-| Variable | Description |
-|---|---|
-| `TWILIO_ACCOUNT_SID` | Twilio Account SID |
-| `TWILIO_AUTH_TOKEN` | Twilio Auth Token |
-| `TWILIO_PHONE_NUMBER` | Your Twilio phone number (E.164 format) |
-| `OPENAI_API_KEY` | OpenAI API key |
-| `PUBLIC_URL` | Public URL from ngrok |
-| `SERVER_PORT` | Webhook server port (default: 8765) |
+## Status
+
+This is a **starting-level MVP**: the full loop works on one machine and maps cleanly onto the
+distributed architecture in [`docs/`](docs/README.md). Not yet included (funded scaling milestones,
+not a weekend's work): massive parallelism, multi-tenant auth, HIPAA/SOC-2 certification, SIP
+telephony, and the live voice path driving real calls. The MVP binds to localhost by default; set
+`PROCTOR_API_KEY` before exposing it on a network.
+
+## License
+
+[MIT](LICENSE) © 2026 Rohit Dusanapudi

@@ -19,6 +19,17 @@ from ..scoring import stats as S
 
 logger = logging.getLogger("proctor.judge")
 
+
+class JudgeError(RuntimeError):
+    """Raised when the configured (LLM) judge cannot score a conversation.
+
+    We raise rather than fall back to the heuristic, because the heuristic cannot evaluate
+    LLM-generated hard constraints and would return 'not violated' for them — silently turning
+    an unevaluated safety rule into a pass. The caller marks the conversation errored instead,
+    excluding it from scoring (and a run with zero scored conversations is BLOCKed).
+    """
+
+
 _DIMS = ["task_success", "accuracy", "coherence", "helpfulness"]
 
 _JUDGE_PROMPT = """You are a strict QA evaluator reviewing a conversation between an AI agent \
@@ -135,11 +146,14 @@ def score_conversation(cv: Conversation, rubric: Rubric, description: str) -> Sc
             raw_results.append(_llm_judge_one(cv, rubric, description, config.JUDGE_MODEL))
             judges_used.append(config.JUDGE_MODEL)
         except llm.OfflineError:
-            pass
-        except Exception as e:  # never let a judge crash a run; fall back
-            logger.warning("LLM judge failed (%s); falling back to heuristic.", e)
+            pass  # key/mode changed mid-run; fall through to heuristic below
+        except Exception as e:
+            # Do NOT fall back to the heuristic here: it cannot check generated hard
+            # constraints and would silently pass an unevaluated safety rule.
+            raise JudgeError(f"LLM judge failed for {cv.id}: {e}") from e
 
     if not raw_results:
+        # Offline mode only: the heuristic judge (deterministic, limited constraint coverage).
         raw_results.append(_heuristic_judge_one(cv, rubric))
         judges_used.append("heuristic")
 

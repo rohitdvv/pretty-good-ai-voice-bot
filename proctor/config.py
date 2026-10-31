@@ -46,7 +46,19 @@ MAX_TURNS = int(os.getenv("PROCTOR_MAX_TURNS", "12"))            # cap a chat co
 
 # --- API / server ---
 API_HOST = os.getenv("PROCTOR_HOST", "127.0.0.1")
-API_PORT = int(os.getenv("PROCTOR_PORT", "8080"))
+# Cloud hosts (Render, Fly, Heroku, Cloud Run) inject $PORT; honor it, else PROCTOR_PORT, else 8080.
+API_PORT = int(os.getenv("PROCTOR_PORT", os.getenv("PORT", "8080")))
+# Optional shared API key. When set, every /api route except health requires header X-API-Key.
+# The MVP binds to localhost by default; a network-exposed deployment MUST set this.
+API_KEY = os.getenv("PROCTOR_API_KEY", "")
+
+# --- Consent / verification (docs/06 §1) ---
+# A one-time ownership code is normally delivered out-of-band (a call-back to the target). For LOCAL
+# development only, set PROCTOR_DEV_ECHO_CODE=1 to return it in the API response so you can self-verify.
+DEV_ECHO_CODE = os.getenv("PROCTOR_DEV_ECHO_CODE", "0") in ("1", "true", "True")
+VERIFY_TTL_SECONDS = int(os.getenv("PROCTOR_VERIFY_TTL", "600"))   # code lifetime
+VERIFY_MAX_ATTEMPTS = int(os.getenv("PROCTOR_VERIFY_MAX_ATTEMPTS", "5"))
+DEMO_PROFILES = ("clinic", "support", "bank")
 
 
 def llm_enabled() -> bool:

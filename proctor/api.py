@@ -9,23 +9,50 @@ from __future__ import annotations
 import logging
 import threading
 
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from . import config, consent, db, service
-from .models import Run, _id
+from .models import Run, Target, _id
+from .netguard import UnsafeURLError
 from .orchestrator import execute_run
 
 logger = logging.getLogger("proctor.api")
 
 app = FastAPI(title="Proctor API", version="0.1.0")
 
+# Fields never exposed over the API (the one-time ownership code is a secret).
+_TARGET_SECRET_FIELDS = {"verification_code", "verification_expires_at", "verification_attempts"}
+
+
+def _target_public(t: Target) -> dict:
+    return {k: v for k, v in t.__dict__.items() if k not in _TARGET_SECRET_FIELDS}
+
+
+@app.middleware("http")
+async def _auth(request: Request, call_next):
+    """Optional shared-key auth. When PROCTOR_API_KEY is set, /api routes (except health) require it.
+    The MVP binds to localhost by default; a network-exposed deployment must set the key."""
+    path = request.url.path
+    if config.API_KEY and path.startswith("/api") and path != "/api/health":
+        if request.headers.get("X-API-Key") != config.API_KEY:
+            return JSONResponse({"detail": "missing or invalid X-API-Key"}, status_code=401)
+    return await call_next(request)
+
 
 @app.on_event("startup")
 def _startup():
     db.init()
+    # Reconcile runs stranded by a prior process exit: no worker survives a restart, so a
+    # persisted queued/running run can never complete — mark it failed rather than hang clients.
+    for r in db.list_runs():
+        if r.status in ("queued", "running"):
+            r.status = "failed"
+            r.report = {"error": "run interrupted by server restart", "gate_verdict": "BLOCK",
+                        "gate_reasons": ["run interrupted by server restart"]}
+            db.save_run(r)
 
 
 # --------------------------- request models --------------------------------- #
@@ -83,13 +110,16 @@ def health():
 
 @app.post("/api/targets")
 def create_target(body: TargetIn):
-    t = service.create_target(body.name, body.channel, body.endpoint, body.description)
-    return t.__dict__
+    try:
+        t = service.create_target(body.name, body.channel, body.endpoint, body.description)
+    except UnsafeURLError as e:
+        raise HTTPException(400, f"unsafe endpoint: {e}")
+    return _target_public(t)
 
 
 @app.get("/api/targets")
 def list_targets():
-    return [t.__dict__ for t in db.list_targets()]
+    return [_target_public(t) for t in db.list_targets()]
 
 
 @app.post("/api/targets/{target_id}/verify/issue")
@@ -98,8 +128,13 @@ def issue_verify(target_id: str):
     if not t:
         raise HTTPException(404, "target not found")
     code = consent.issue_verification(t)
-    # In production the code is delivered by calling the target; echoed here for the MVP demo.
-    return {"issued": True, "code": code, "note": "Echo this code back to verify ownership."}
+    # The code is delivered out-of-band by calling/posting to the target (proving control).
+    # It is returned in the response ONLY in local dev mode (PROCTOR_DEV_ECHO_CODE=1).
+    resp = {"issued": True, "note": "Code delivered to the target; echo it back to verify ownership."}
+    if config.DEV_ECHO_CODE:
+        resp["code"] = code
+        resp["dev_note"] = "PROCTOR_DEV_ECHO_CODE is on — do not enable on a shared deployment."
+    return resp
 
 
 @app.post("/api/targets/{target_id}/verify")

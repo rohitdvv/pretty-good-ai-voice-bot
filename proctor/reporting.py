@@ -46,7 +46,8 @@ def _persona_stats(suite: Suite, results: list[ScoredResult]) -> list[S.PersonaS
 
 
 def build_report(run_id: str, suite: Suite, results: list[ScoredResult],
-                 baseline_run_id: str = "", gates: dict | None = None) -> dict:
+                 baseline_run_id: str = "", gates: dict | None = None,
+                 target_id: str = "") -> dict:
     gates = gates or {}
     pstats = _persona_stats(suite, results)
 
@@ -111,26 +112,49 @@ def build_report(run_id: str, suite: Suite, results: list[ScoredResult],
     }
 
     if baseline_run_id:
-        report["regression"] = _regression_diff(run_id, baseline_run_id, suite, results)
+        report["regression"] = _regression_diff(baseline_run_id, suite, results, target_id)
 
     _apply_gates(report, gates)
     return report
 
 
-def _regression_diff(run_id: str, baseline_run_id: str, suite: Suite,
-                     new_results: list[ScoredResult]) -> dict:
+def _regression_diff(baseline_run_id: str, suite: Suite,
+                     new_results: list[ScoredResult], target_id: str = "") -> dict:
+    # Validate the baseline before comparing: a typo'd or incompatible baseline must NOT pass
+    # the gate by making an empty comparison (docs/04 §5).
+    base_run = db.get_run(baseline_run_id)
+    if base_run is None:
+        return {"baseline_run_id": baseline_run_id, "regressed": [], "n_compared": 0,
+                "error": "baseline run not found"}
+    if base_run.status != "completed":
+        return {"baseline_run_id": baseline_run_id, "regressed": [], "n_compared": 0,
+                "error": f"baseline run status is '{base_run.status}', not completed"}
+    if base_run.suite_id != suite.id:
+        return {"baseline_run_id": baseline_run_id, "regressed": [], "n_compared": 0,
+                "error": "baseline was run against a different suite"}
+    if target_id and base_run.target_id != target_id:
+        return {"baseline_run_id": baseline_run_id, "regressed": [], "n_compared": 0,
+                "error": "baseline was run against a different target"}
+
     base_results = db.list_results(baseline_run_id)
+    base_by_persona: dict[str, list[ScoredResult]] = defaultdict(list)
+    for r in base_results:
+        base_by_persona[r.persona_id].append(r)
+    new_by_persona: dict[str, list[ScoredResult]] = defaultdict(list)
+    for r in new_results:
+        new_by_persona[r.persona_id].append(r)
+
     base_stats = {ps.persona_id: ps for ps in _persona_stats(suite, base_results)}
     new_stats = {ps.persona_id: ps for ps in _persona_stats(suite, new_results)}
-    pmap = {p.id: p for p in suite.personas}
 
     pairs = []
     for pid, ns in new_stats.items():
         bs = base_stats.get(pid)
         if not bs:
             continue
-        persona = pmap.get(pid)
-        critical = bool(persona and persona.category == "adversarial")
+        # Criticality comes from ACTUAL critical violations in either run (docs/models), not
+        # from the persona's category — a critical regression anywhere must be caught.
+        critical = any(r.critical_violated for r in base_by_persona[pid] + new_by_persona[pid])
         pairs.append({"persona_id": pid, "k_a": ns.passes, "n_a": ns.n,
                       "k_b": bs.passes, "n_b": bs.n, "critical": critical})
 
@@ -149,6 +173,10 @@ def _apply_gates(report: dict, gates: dict) -> None:
     """Evaluate configurable gates into a single CI verdict (docs/04 §5)."""
     reasons: list[str] = []
 
+    # Fail-safe: a run that scored zero conversations tested nothing — never let it PASS.
+    if report["conversations"] == 0:
+        reasons.append("no conversations were successfully scored (nothing was tested)")
+
     # Default hard gate: any Critical failure in the run blocks.
     if gates.get("block_on_critical", True) and report["critical_failures"]:
         reasons.append(f"{len(report['critical_failures'])} critical safety failure(s) observed")
@@ -163,6 +191,10 @@ def _apply_gates(report: dict, gates: dict) -> None:
 
     reg = report.get("regression")
     if reg and gates.get("block_on_regression", True):
+        if reg.get("error"):
+            reasons.append(f"baseline comparison invalid: {reg['error']}")
+        elif reg.get("n_compared", 0) == 0:
+            reasons.append("baseline requested but no personas could be compared")
         crit_reg = [r for r in reg["regressed"] if r["critical"]]
         if crit_reg:
             reasons.append(f"{len(crit_reg)} critical persona(s) regressed vs baseline")

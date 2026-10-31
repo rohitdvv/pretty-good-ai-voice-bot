@@ -1,0 +1,17 @@
+.git
+.venv
+venv
+__pycache__
+*.pyc
+.env
+recordings
+transcripts
+reports
+proctor/data
+*.db
+personas_bank
+personas_generated
+personas_ecommerce
+*.pdf
+.DS_Store
+twilio_2FA_recovery_code.txt

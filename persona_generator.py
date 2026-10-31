@@ -244,7 +244,14 @@ def main():
     out_dir = Path(args.out)
     paths = write_personas(personas, out_dir)
     print(f"\nWrote {len(paths)} persona files to {out_dir}/")
-    print(f"Run them with:  python main.py --persona {' '.join(p.id for p in personas[:3])} ...\n")
+    # main.py's load_persona only reads the configured personas/ directory, so a custom --out
+    # dir won't work there directly. Tell the user how to actually run them.
+    if out_dir.name == "personas":
+        print(f"Run them with:  python main.py --persona {' '.join(p.id for p in personas[:3])} ...\n")
+    else:
+        print(f"To run these with main.py, copy them into the personas/ directory first:")
+        print(f"  cp {out_dir}/*.json personas/")
+        print(f"Or use the Proctor package, which loads suites from any source (see proctor/QUICKSTART.md).\n")
 
 
 if __name__ == "__main__":

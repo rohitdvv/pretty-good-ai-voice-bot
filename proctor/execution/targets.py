@@ -104,6 +104,8 @@ class HTTPChatBot:
 
     def respond(self, history: list[Turn]) -> str:
         import requests
+        from ..netguard import validate_external_url
+        validate_external_url(self.endpoint)    # re-check at call time (defense in depth)
         messages = [{"role": "assistant" if t.role == "agent" else "user", "content": t.text}
                     for t in history]
         r = requests.post(self.endpoint, json={"messages": messages}, headers=self.headers, timeout=30)

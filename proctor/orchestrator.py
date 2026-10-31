@@ -12,7 +12,7 @@ import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from . import config, consent, db, reporting
-from .evaluator.judge import score_conversation
+from .evaluator.judge import JudgeError, score_conversation
 from .execution.runner import run_conversation
 from .models import Run, ScoredResult, Suite, Target, _id
 
@@ -61,10 +61,18 @@ def execute_run(run: Run) -> Run:
     def _one(job):
         persona, idx = job
         cv = run_conversation(run.id, persona, target.channel, target.endpoint, idx)
-        db.save_conversation(cv)
         if cv.status != "completed":
+            db.save_conversation(cv)
             return None  # errored call != bot failure; excluded from scoring (docs/03 §1)
-        res = score_conversation(cv, suite.rubric, suite.description or target.description)
+        try:
+            res = score_conversation(cv, suite.rubric, suite.description or target.description)
+        except JudgeError as e:
+            # The judge could not evaluate this conversation — exclude it rather than pass it.
+            cv.status = "errored"
+            cv.error = str(e)
+            db.save_conversation(cv)
+            return None
+        db.save_conversation(cv)
         db.save_result(run.id, res)
         return res
 
@@ -78,7 +86,7 @@ def execute_run(run: Run) -> Run:
 
     report = reporting.build_report(
         run.id, suite, results,
-        baseline_run_id=run.baseline_run_id, gates=run.gates,
+        baseline_run_id=run.baseline_run_id, gates=run.gates, target_id=run.target_id,
     )
     run.report = report
     run.status = "completed"
