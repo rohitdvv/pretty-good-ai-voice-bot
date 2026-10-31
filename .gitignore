@@ -7,3 +7,10 @@ recordings/*.ulaw
 venv/
 .DS_Store
 twilio_2FA_recovery_code.txt
+
+# Proctor generated artifacts
+proctor/data/
+*.db
+personas_bank/
+personas_generated/
+personas_ecommerce/
