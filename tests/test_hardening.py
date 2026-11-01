@@ -34,8 +34,9 @@ def test_ssrf_guard():
 
 
 def test_consent_single_use_and_attempts():
+    # Echo verification is for callback (voice) targets; chat must use the HTTP challenge.
     db.init()
-    t = Target.new("t", "chat", "https://example.com/chat")
+    t = Target.new("t", "voice", "+15551230000")
     db.save_target(t)
     code = consent.issue_verification(t)
     # Wrong code increments attempts, does not verify.
@@ -49,9 +50,19 @@ def test_consent_single_use_and_attempts():
     assert consent.confirm_verification(t, code) is False
 
 
+def test_chat_echo_rejected():
+    # A chat target can never be verified by echoing the code (prevents CLI bypass of the challenge).
+    db.init()
+    t = Target.new("tc", "chat", "https://example.com/chat")
+    db.save_target(t)
+    code = consent.issue_verification(t)
+    assert consent.confirm_verification(t, code) is False
+    assert t.consent_status == "unverified"
+
+
 def test_consent_attempt_lockout():
     db.init()
-    t = Target.new("t2", "chat", "https://example.com/chat")
+    t = Target.new("t2", "voice", "+15551230001")
     db.save_target(t)
     code = consent.issue_verification(t)
     for _ in range(5):
@@ -72,17 +83,20 @@ def test_zero_scored_blocks():
     assert any("nothing was tested" in r for r in rep["gate_reasons"])
 
 
-def test_reissue_cap():
+def test_reissue_cooldown_not_permanent_lockout():
     db.init()
-    t = Target.new("t3", "chat", "https://example.com/chat")
+    t = Target.new("t3", "voice", "+15551230002")
     db.save_target(t)
-    for _ in range(config.VERIFY_MAX_ISSUES):
-        consent.issue_verification(t)
+    consent.issue_verification(t)
+    # An immediate reissue is throttled by the cooldown...
     try:
         consent.issue_verification(t)
-        assert False, "reissue beyond the cap should raise"
+        assert False, "immediate reissue should be throttled"
     except consent.ConsentError:
         pass
+    # ...but once the cooldown elapses, a new code can be issued (no permanent lockout).
+    t.verification_last_issued_at = 0.0
+    assert consent.issue_verification(t)             # succeeds, returns a code
 
 
 def test_offline_medical_suite_not_all_emergency():

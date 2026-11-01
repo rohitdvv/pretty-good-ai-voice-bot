@@ -103,14 +103,16 @@ class HTTPChatBot:
         return None  # customer bots usually respond to the first user turn
 
     def respond(self, history: list[Turn]) -> str:
-        import requests
-        from ..netguard import validate_external_url
-        validate_external_url(self.endpoint)    # re-check at call time (defense in depth)
+        import json
+        from ..netguard import safe_request
         messages = [{"role": "assistant" if t.role == "agent" else "user", "content": t.text}
                     for t in history]
-        r = requests.post(self.endpoint, json={"messages": messages}, headers=self.headers, timeout=30)
-        r.raise_for_status()
-        data = r.json()
+        # IP-pinned, rebinding-safe POST (SSRF guard applied inside safe_request).
+        status, text = safe_request("POST", self.endpoint, json_body={"messages": messages},
+                                    headers=self.headers, timeout=30)
+        if status >= 400:
+            raise RuntimeError(f"chat endpoint returned HTTP {status}")
+        data = json.loads(text) if text else {}
         return data.get("reply") or data.get("message") or data.get("content") or ""
 
     def close(self) -> None:

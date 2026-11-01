@@ -16,7 +16,6 @@ from urllib.parse import urlparse, urlunparse
 
 from . import config, db
 from .models import Target, now
-from .netguard import UnsafeURLError, validate_external_url
 
 logger = logging.getLogger("proctor.consent")
 
@@ -28,16 +27,18 @@ class ConsentError(RuntimeError):
 def issue_verification(target: Target) -> str:
     """Issue a one-time ownership code.
 
-    Reissues are capped (VERIFY_MAX_ISSUES) so a caller cannot renew guessing attempts
-    indefinitely against an unverified target.
+    Reissues are throttled by a cooldown (VERIFY_ISSUE_COOLDOWN) rather than a hard lifetime cap,
+    so a caller cannot rapidly renew guessing attempts yet a legitimate owner is never permanently
+    locked out.
     """
-    if target.verification_issues >= config.VERIFY_MAX_ISSUES:
+    elapsed = now() - target.verification_last_issued_at
+    if target.verification_last_issued_at and elapsed < config.VERIFY_ISSUE_COOLDOWN:
         raise ConsentError(
-            f"Verification code reissue limit ({config.VERIFY_MAX_ISSUES}) reached for this target.")
+            f"Please wait {int(config.VERIFY_ISSUE_COOLDOWN - elapsed)}s before requesting a new code.")
     code = f"{secrets.randbelow(1_000_000):06d}"
     target.verification_code = code
     target.verification_attempts = 0
-    target.verification_issues += 1
+    target.verification_last_issued_at = now()
     target.verification_expires_at = now() + config.VERIFY_TTL_SECONDS
     target.consent_status = "unverified"
     db.save_target(target)
@@ -47,9 +48,12 @@ def issue_verification(target: Target) -> str:
 def confirm_verification(target: Target, code: str, method: str = "callback_code") -> bool:
     """Mark the target verified iff the echoed code matches, is unexpired, and attempts remain.
 
-    On success the code is consumed (cleared) so it cannot be reused; on repeated failure the
-    code is invalidated to stop brute-forcing.
+    Echoing a code only proves possession, not control, so it is NOT accepted for chat targets
+    (they must satisfy the HTTP challenge via verify_by_http) except in local dev mode. On success
+    the code is consumed; on repeated failure it is invalidated to stop brute-forcing.
     """
+    if target.channel == "chat" and not config.DEV_ECHO_CODE:
+        return False
     if not target.verification_code:
         return False
     if target.verification_expires_at and now() > target.verification_expires_at:
@@ -89,7 +93,7 @@ def verify_by_http(target: Target, method: str = "http_challenge") -> bool:
     target's server. Only someone who controls that server can satisfy this — echoing the code
     back is not enough. Redirects are disabled so the proof can't be bounced elsewhere.
     """
-    import requests
+    from .netguard import safe_request
     if not target.verification_code:
         return False
     if target.verification_expires_at and now() > target.verification_expires_at:
@@ -97,12 +101,13 @@ def verify_by_http(target: Target, method: str = "http_challenge") -> bool:
         return False
     url = well_known_url(target.endpoint)
     try:
-        validate_external_url(url)                 # SSRF guard on the challenge URL too
-        r = requests.get(url, timeout=15, allow_redirects=False)
-    except (UnsafeURLError, requests.RequestException) as e:
+        status, text = safe_request("GET", url, timeout=15)   # IP-pinned, redirect-safe
+    except Exception as e:                                     # UnsafeURLError, network, TLS, etc.
         logger.info("HTTP challenge fetch failed for %s: %s", target.id, e)
         return False
-    if r.status_code == 200 and target.verification_code in r.text:
+    # Require the challenge file to contain EXACTLY the code (stripped) — a substring match would
+    # let any page that happens to contain those digits pass as proof of ownership.
+    if status == 200 and text.strip() == target.verification_code:
         target.consent_status = "verified"
         target.consent_method = method
         target.verification_code = ""              # consume

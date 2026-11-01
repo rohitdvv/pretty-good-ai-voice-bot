@@ -24,7 +24,8 @@ logger = logging.getLogger("proctor.api")
 app = FastAPI(title="Proctor API", version="0.1.0")
 
 # Fields never exposed over the API (the one-time ownership code is a secret).
-_TARGET_SECRET_FIELDS = {"verification_code", "verification_expires_at", "verification_attempts"}
+_TARGET_SECRET_FIELDS = {"verification_code", "verification_expires_at", "verification_attempts",
+                         "verification_last_issued_at"}
 
 
 def _target_public(t: Target) -> dict:

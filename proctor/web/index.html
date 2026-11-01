@@ -149,14 +149,16 @@ let CURRENT_RUN = null, POLL = null, SUITE = null;
 function esc(v){ return String(v==null?'':v).replace(/[&<>"']/g, c =>
   ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
-function apiKey(){ try{ return localStorage.getItem('proctor-key')||''; }catch(e){ return ''; } }
+// Key is kept in sessionStorage (cleared when the tab closes), not localStorage, so it is not
+// left persisted in the browser profile for later reuse.
+function apiKey(){ try{ return sessionStorage.getItem('proctor-key')||''; }catch(e){ return ''; } }
 async function api(path, method='GET', body, _retried){
   const headers={'Content-Type':'application/json'};
   const k=apiKey(); if(k) headers['X-API-Key']=k;
   const r = await fetch('/api'+path, {method, headers, body: body?JSON.stringify(body):undefined});
   if(r.status===401 && !_retried){
-    const key = prompt('This Proctor server requires an API key (X-API-Key):');
-    if(key){ try{ localStorage.setItem('proctor-key', key); }catch(e){} return api(path, method, body, true); }
+    const key = prompt('This Proctor server requires an API key (X-API-Key). It is kept only for this browser tab.');
+    if(key){ try{ sessionStorage.setItem('proctor-key', key); }catch(e){} return api(path, method, body, true); }
   }
   if(!r.ok){ let d; try{ d=(await r.json()).detail; }catch(e){} throw new Error(d || r.statusText); }
   return r.json();
