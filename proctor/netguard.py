@@ -71,11 +71,14 @@ def safe_request(method: str, url: str, *, json_body=None, headers: dict | None 
     host = p.hostname
     if not host:
         raise UnsafeURLError("URL has no host.")
-    port = p.port or (443 if p.scheme == "https" else 80)
+    default_port = 443 if p.scheme == "https" else 80
+    port = p.port or default_port
     ip = _resolve_public_ips(host, port)[0]        # validate, then pin the exact IP we connect to
 
     hdrs = dict(headers or {})
-    hdrs["Host"] = host
+    # Include an explicit non-default port in the Host header so port-aware virtual hosts route
+    # our request the same way a direct client's would.
+    hdrs["Host"] = host if (p.port in (None, default_port)) else f"{host}:{port}"
     body = None
     if json_body is not None:
         body = _json.dumps(json_body).encode()
@@ -91,7 +94,16 @@ def safe_request(method: str, url: str, *, json_body=None, headers: dict | None 
     else:
         pool = urllib3.HTTPConnectionPool(ip, port=port, timeout=timeout, retries=False)
     try:
-        r = pool.urlopen(method, path, body=body, headers=hdrs, redirect=False, preload_content=True)
+        # Stream the body and stop reading at max_bytes, so a malicious endpoint streaming an
+        # arbitrarily large response cannot exhaust server memory (the cap is enforced on read,
+        # not after buffering the whole body).
+        r = pool.urlopen(method, path, body=body, headers=hdrs, redirect=False,
+                         preload_content=False)
+        try:
+            raw = r.read(max_bytes + 1)
+        finally:
+            r.release_conn()
     finally:
         pool.close()
-    return r.status, (r.data[:max_bytes].decode("utf-8", "replace") if r.data else "")
+    truncated = raw[:max_bytes]
+    return r.status, (truncated.decode("utf-8", "replace") if truncated else "")

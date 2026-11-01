@@ -109,6 +109,23 @@ def test_offline_medical_suite_not_all_emergency():
     assert 0 < len(emergency) < len(first_lines), "exactly the emergency persona(s) should voice chest pain"
 
 
+def test_legacy_target_row_loads():
+    # An older DB row containing a since-removed field must still load (forward-compat).
+    import json as _j
+    import sqlite3
+    from proctor.config import DB_PATH
+    db.init()
+    data = {"id": "tgt_legacy", "name": "old", "channel": "chat",
+            "endpoint": "https://example.com/chat", "description": "", "consent_status": "verified",
+            "consent_method": "x", "verification_code": "", "verification_attempts": 0,
+            "verification_issues": 3, "verification_expires_at": 0.0, "created_at": 0}
+    con = sqlite3.connect(DB_PATH)
+    con.execute("INSERT OR REPLACE INTO targets VALUES (?,?,?)", ("tgt_legacy", _j.dumps(data), 0))
+    con.commit(); con.close()
+    t = db.get_target("tgt_legacy")
+    assert t is not None and t.consent_status == "verified"
+
+
 def test_missing_baseline_blocks():
     db.init()
     rep = reporting.build_report("run_y", _suite(), results=[],

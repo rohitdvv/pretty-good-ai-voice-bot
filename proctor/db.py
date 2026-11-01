@@ -59,6 +59,14 @@ def _suite_from_json(txt: str) -> Suite:
     )
 
 
+def _target_from_json(txt: str) -> Target:
+    # Tolerate legacy/removed fields in older DB rows (e.g. a renamed verification field) by
+    # keeping only the fields Target currently declares.
+    d = json.loads(txt)
+    known = {f for f in Target.__dataclass_fields__}
+    return Target(**{k: v for k, v in d.items() if k in known})
+
+
 def _convo_from_json(txt: str) -> Conversation:
     d = json.loads(txt)
     d["transcript"] = [Turn(**t) for t in d.get("transcript", [])]
@@ -81,13 +89,13 @@ def save_target(t: Target) -> None:
 def get_target(tid: str) -> Target | None:
     with _conn() as c:
         row = c.execute("SELECT data FROM targets WHERE id=?", (tid,)).fetchone()
-    return Target(**json.loads(row["data"])) if row else None
+    return _target_from_json(row["data"]) if row else None
 
 
 def list_targets() -> list[Target]:
     with _conn() as c:
         rows = c.execute("SELECT data FROM targets ORDER BY created_at DESC").fetchall()
-    return [Target(**json.loads(r["data"])) for r in rows]
+    return [_target_from_json(r["data"]) for r in rows]
 
 
 # --- Suites ------------------------------------------------------------------
