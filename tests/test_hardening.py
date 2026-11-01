@@ -126,6 +126,10 @@ def test_decompress_bounded():
     # gzip bomb is bounded to the limit
     big = (lambda c: c.compress(b"A" * 5_000_000) + c.flush())(zlib.compressobj(9, zlib.DEFLATED, 16 + zlib.MAX_WBITS))
     assert len(_decompress_bounded(big, "gzip", 100)) == 100
+    # a flood of empty gzip members is bounded (member cap), not processed indefinitely
+    flood = gz(b"") * 5000
+    import time as _t
+    _s = _t.time(); _decompress_bounded(flood, "gzip", 1000); assert _t.time() - _s < 1.0
 
 
 def test_legacy_target_row_loads():

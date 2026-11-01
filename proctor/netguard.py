@@ -30,6 +30,9 @@ class UnsafeURLError(ValueError):
 # Hard cap on raw/compressed bytes pulled into memory for one response, independent of the
 # decoded-output cap (max_bytes). Bounds memory even for a highly compressible payload.
 _RAW_READ_CAP = 2_000_000
+# Max concatenated gzip members to process (legit responses use one), bounding CPU on a
+# response crafted from many tiny/empty members.
+_MAX_GZIP_MEMBERS = 128
 
 
 def _assert_public_ip(ip: ipaddress._BaseAddress) -> None:
@@ -128,7 +131,11 @@ def _decompress_bounded(raw: bytes, enc: str, limit: int) -> bytes:
     if "gzip" in enc:
         out = bytearray()
         data = raw
-        while data and len(out) < limit:
+        members = 0
+        # Cap the number of concatenated members processed: a response made of thousands of
+        # tiny/empty members stays under the output cap but would otherwise spin the CPU.
+        while data and len(out) < limit and members < _MAX_GZIP_MEMBERS:
+            members += 1
             d = zlib.decompressobj(16 + zlib.MAX_WBITS)
             try:
                 out += d.decompress(data, limit - len(out))
