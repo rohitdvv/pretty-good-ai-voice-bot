@@ -109,6 +109,25 @@ def test_offline_medical_suite_not_all_emergency():
     assert 0 < len(emergency) < len(first_lines), "exactly the emergency persona(s) should voice chest pain"
 
 
+def test_decompress_bounded():
+    import zlib
+    from proctor.netguard import _decompress_bounded
+    payload = b'{"reply":"hello"}'
+    # raw (headerless) DEFLATE
+    raw_deflate = (lambda d: d.compress(payload) + d.flush())(zlib.compressobj(9, zlib.DEFLATED, -zlib.MAX_WBITS))
+    assert _decompress_bounded(raw_deflate, "deflate", 1000) == payload
+    # zlib-wrapped deflate
+    assert _decompress_bounded(zlib.compress(payload), "deflate", 1000) == payload
+    # multi-member gzip (two concatenated members)
+    def gz(b):
+        c = zlib.compressobj(9, zlib.DEFLATED, 16 + zlib.MAX_WBITS); return c.compress(b) + c.flush()
+    multi = gz(b'{"rep') + gz(b'ly":"hello"}')
+    assert _decompress_bounded(multi, "gzip", 1000) == payload
+    # gzip bomb is bounded to the limit
+    big = (lambda c: c.compress(b"A" * 5_000_000) + c.flush())(zlib.compressobj(9, zlib.DEFLATED, 16 + zlib.MAX_WBITS))
+    assert len(_decompress_bounded(big, "gzip", 100)) == 100
+
+
 def test_legacy_target_row_loads():
     # An older DB row containing a since-removed field must still load (forward-compat).
     import json as _j

@@ -113,13 +113,36 @@ def safe_request(method: str, url: str, *, json_body=None, headers: dict | None 
 
     enc = (r.headers.get("Content-Encoding") or "").lower()
     if raw and ("gzip" in enc or "deflate" in enc):
-        import zlib
-        wbits = (16 + zlib.MAX_WBITS) if "gzip" in enc else zlib.MAX_WBITS
-        try:
-            # decompress() with a max_length stops at max_bytes of OUTPUT (the rest is left
-            # unconsumed), so a high-ratio payload cannot blow past the cap.
-            raw = zlib.decompressobj(wbits).decompress(raw, max_bytes)
-        except zlib.error:
-            raw = b""
+        raw = _decompress_bounded(raw, enc, max_bytes)
     truncated = raw[:max_bytes]
     return r.status, (truncated.decode("utf-8", "replace") if truncated else "")
+
+
+def _decompress_bounded(raw: bytes, enc: str, limit: int) -> bytes:
+    """Decompress gzip/deflate with a hard OUTPUT cap, handling multi-member gzip and raw deflate.
+
+    decompress(data, max_length) emits at most max_length bytes of output, so a high-ratio
+    payload can never blow past the cap regardless of how it is framed.
+    """
+    import zlib
+    if "gzip" in enc:
+        out = bytearray()
+        data = raw
+        while data and len(out) < limit:
+            d = zlib.decompressobj(16 + zlib.MAX_WBITS)
+            try:
+                out += d.decompress(data, limit - len(out))
+            except zlib.error:
+                break
+            if d.eof:
+                data = d.unused_data        # continue with the next concatenated gzip member
+            else:
+                break                        # hit the cap mid-member (or truncated) — stop
+        return bytes(out[:limit])
+    # deflate: try zlib-wrapped first, then raw (headerless) DEFLATE.
+    for wbits in (zlib.MAX_WBITS, -zlib.MAX_WBITS):
+        try:
+            return zlib.decompressobj(wbits).decompress(raw, limit)[:limit]
+        except zlib.error:
+            continue
+    return b""
