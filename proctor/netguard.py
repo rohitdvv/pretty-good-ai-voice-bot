@@ -27,6 +27,11 @@ class UnsafeURLError(ValueError):
     """Raised when a target URL resolves to a disallowed destination."""
 
 
+# Hard cap on raw/compressed bytes pulled into memory for one response, independent of the
+# decoded-output cap (max_bytes). Bounds memory even for a highly compressible payload.
+_RAW_READ_CAP = 2_000_000
+
+
 def _assert_public_ip(ip: ipaddress._BaseAddress) -> None:
     if (ip.is_private or ip.is_loopback or ip.is_link_local or ip.is_reserved
             or ip.is_multicast or ip.is_unspecified):
@@ -94,16 +99,27 @@ def safe_request(method: str, url: str, *, json_body=None, headers: dict | None 
     else:
         pool = urllib3.HTTPConnectionPool(ip, port=port, timeout=timeout, retries=False)
     try:
-        # Stream the body and stop reading at max_bytes, so a malicious endpoint streaming an
-        # arbitrarily large response cannot exhaust server memory (the cap is enforced on read,
-        # not after buffering the whole body).
+        # Stream the body with decoding OFF and stop reading at a bounded amount, so neither a
+        # huge plain response nor a small gzip "bomb" (which would expand on decode) can exhaust
+        # server memory. We decompress ourselves with a hard output cap below.
         r = pool.urlopen(method, path, body=body, headers=hdrs, redirect=False,
-                         preload_content=False)
+                         preload_content=False, decode_content=False)
         try:
-            raw = r.read(max_bytes + 1)
+            raw = r.read(_RAW_READ_CAP, decode_content=False)
         finally:
             r.release_conn()
     finally:
         pool.close()
+
+    enc = (r.headers.get("Content-Encoding") or "").lower()
+    if raw and ("gzip" in enc or "deflate" in enc):
+        import zlib
+        wbits = (16 + zlib.MAX_WBITS) if "gzip" in enc else zlib.MAX_WBITS
+        try:
+            # decompress() with a max_length stops at max_bytes of OUTPUT (the rest is left
+            # unconsumed), so a high-ratio payload cannot blow past the cap.
+            raw = zlib.decompressobj(wbits).decompress(raw, max_bytes)
+        except zlib.error:
+            raw = b""
     truncated = raw[:max_bytes]
     return r.status, (truncated.decode("utf-8", "replace") if truncated else "")
