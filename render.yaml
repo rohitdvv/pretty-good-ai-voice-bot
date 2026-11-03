@@ -1,0 +1,23 @@
+# One-click deploy to Render (https://render.com) — "New → Blueprint" on this repo.
+# Free-tier friendly. Set OPENAI_API_KEY and PROCTOR_API_KEY in the dashboard after first deploy.
+services:
+  - type: web
+    name: proctor
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: PROCTOR_HOST
+        value: 0.0.0.0
+      - key: PROCTOR_MODE
+        value: auto            # uses the LLM when OPENAI_API_KEY is set, else offline
+      - key: PROCTOR_DB
+        value: /data/proctor.db
+      - key: OPENAI_API_KEY
+        sync: false            # set in the Render dashboard (secret)
+      - key: PROCTOR_API_KEY
+        sync: false            # REQUIRED once public: protects /api (see docs/06)
+    disk:
+      name: proctor-data
+      mountPath: /data
+      sizeGB: 1
